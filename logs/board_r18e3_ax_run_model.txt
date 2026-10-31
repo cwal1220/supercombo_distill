@@ -1,0 +1,25 @@
+   Run AxModel:
+         model: /root/distill/r18e3.axmodel
+          type: Half
+          vnpu: Disable
+      affinity: 0b01
+        warmup: 20
+        repeat: 500
+         batch: { auto: 0 }
+   pulsar2 ver: 6.0 48520c11
+    engine ver: 2.10.1s
+      tool ver: 2.5.0a
+      cmm size: 19174268 Bytes
+  ---------------------------------------------------------------------------
+  min =  12.485 ms   max =  13.022 ms   avg =  12.491 ms  median =  12.487 ms
+   5% =  12.486 ms   90% =  12.490 ms   95% =  12.496 ms     99% =  12.563 ms
+  ---------------------------------------------------------------------------
+
+[INFO] Available providers:  ['AxEngineExecutionProvider']
+[INFO] Using provider: AxEngineExecutionProvider
+[INFO] Chip type: ChipType.MC20E
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Engine version: 2.10.1s
+[INFO] Model type: 0 (half core)
+[INFO] Compiler version: 6.0 48520c11
+1497 frames, run() 16.92 ms median, 16.98 mean

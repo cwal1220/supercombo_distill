@@ -1,0 +1,14 @@
+fitted on lrc_s8_new: far-lead x0 40 b0 +0.75 b1 0.50; global shift -0.45
+using --params: far-lead x0 40 b0 +0.75 b1 0.50
+lrc_s8_new (2 routes, 48739 frames), false / missed %:
+  shipped               21.42   2.20
+  student               28.46   1.85
+  global shift          20.89   2.56
+  far-lead calibration  20.89   2.40
+lrd_npu (5 routes, 34269 frames), false / missed %:
+  shipped                5.06  10.59
+  student                8.01   7.74
+  global shift           4.86  10.23
+  far-lead calibration   5.79   9.11
+dead lead_prob features [5, 12, 15] on 256 calibration samples; using 12
+saved ckpt/mac_lrd/ema_cal.pt

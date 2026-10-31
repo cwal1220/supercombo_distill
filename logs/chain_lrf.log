@@ -1,0 +1,4 @@
+Sat Oct 31 15:03:51 KST 2026 LRF from ckpt/mac_lrc/ema.pt
+Sat Oct 31 17:28:08 KST 2026 LRF best ckpt/mac_lrf/ema.pt
+Sat Oct 31 18:11:29 KST 2026 built lrf_ext
+Sat Oct 31 18:50:41 KST 2026 p2sim lrf_ext done

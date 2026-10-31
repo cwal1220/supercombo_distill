@@ -1,0 +1,10 @@
+2026-10-30 14:14:56 watching ckpt/mac_r18b/last.pt (mtime 0, 0 copies already)
+2026-10-30 15:25:40 ep1.pt <- last.pt (mtime 1793341524,  64M)
+2026-10-30 15:48:36 ep1.pt evaluated
+2026-10-30 16:13:41 ep2.pt <- last.pt (mtime 1793344389,  64M)
+2026-10-30 16:31:24 ep2.pt evaluated
+2026-10-30 17:20:44 ep3.pt <- last.pt (mtime 1793348419,  64M)
+2026-10-30 17:37:37 ep3.pt evaluated
+2026-10-30 18:07:45 ep4.pt <- last.pt (mtime 1793351234,  64M)
+2026-10-30 18:27:49 ep4.pt evaluated
+2026-10-30 18:27:49 done, 4 copies

@@ -1,0 +1,244 @@
+Building native ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+2026-10-29 15:28:12.382 | INFO     | yamain.command.run:run:92 - >>> [0] start
+2026-10-29 15:28:12.385 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:28:31.909 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/0/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:28:31.910 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/0/hx_meta.bin] successfully, size: 256
+2026-10-29 15:28:31.910 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/0/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:28:31.911 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/0/hx_pose.bin] successfully, size: 128
+2026-10-29 15:28:31.911 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/0/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:28:31.911 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/0/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:28:31.912 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/0/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:28:31.912 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/0/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:28:31.912 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/0/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:28:31.913 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/0/hx_lead.bin] successfully, size: 256
+2026-10-29 15:28:31.913 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/0/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:28:31.914 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/0/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:28:31.914 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/0/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:28:31.914 | INFO     | yamain.command.run:run:92 - >>> [1] start
+2026-10-29 15:28:31.916 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:28:51.614 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/1/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:28:51.614 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/1/hx_meta.bin] successfully, size: 256
+2026-10-29 15:28:51.615 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/1/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:28:51.615 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/1/hx_pose.bin] successfully, size: 128
+2026-10-29 15:28:51.616 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/1/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:28:51.616 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/1/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:28:51.616 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/1/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:28:51.617 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/1/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:28:51.617 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/1/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:28:51.617 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/1/hx_lead.bin] successfully, size: 256
+2026-10-29 15:28:51.618 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/1/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:28:51.618 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/1/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:28:51.618 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/1/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:28:51.618 | INFO     | yamain.command.run:run:92 - >>> [2] start
+2026-10-29 15:28:51.620 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:29:11.323 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/2/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:29:11.324 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/2/hx_meta.bin] successfully, size: 256
+2026-10-29 15:29:11.324 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/2/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:29:11.325 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/2/hx_pose.bin] successfully, size: 128
+2026-10-29 15:29:11.325 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/2/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:29:11.326 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/2/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:29:11.326 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/2/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:29:11.326 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/2/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:29:11.327 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/2/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:29:11.327 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/2/hx_lead.bin] successfully, size: 256
+2026-10-29 15:29:11.327 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/2/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:29:11.328 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/2/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:29:11.328 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/2/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:29:11.328 | INFO     | yamain.command.run:run:92 - >>> [3] start
+2026-10-29 15:29:11.330 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:29:31.086 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/3/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:29:31.087 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/3/hx_meta.bin] successfully, size: 256
+2026-10-29 15:29:31.087 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/3/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:29:31.088 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/3/hx_pose.bin] successfully, size: 128
+2026-10-29 15:29:31.088 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/3/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:29:31.088 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/3/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:29:31.089 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/3/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:29:31.089 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/3/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:29:31.089 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/3/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:29:31.090 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/3/hx_lead.bin] successfully, size: 256
+2026-10-29 15:29:31.090 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/3/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:29:31.090 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/3/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:29:31.091 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/3/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:29:31.091 | INFO     | yamain.command.run:run:92 - >>> [4] start
+2026-10-29 15:29:31.093 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:29:50.987 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/4/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:29:50.987 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/4/hx_meta.bin] successfully, size: 256
+2026-10-29 15:29:50.988 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/4/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:29:50.988 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/4/hx_pose.bin] successfully, size: 128
+2026-10-29 15:29:50.988 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/4/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:29:50.989 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/4/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:29:50.989 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/4/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:29:50.989 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/4/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:29:50.990 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/4/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:29:50.990 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/4/hx_lead.bin] successfully, size: 256
+2026-10-29 15:29:50.990 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/4/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:29:50.991 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/4/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:29:50.991 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/4/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:29:50.991 | INFO     | yamain.command.run:run:92 - >>> [5] start
+2026-10-29 15:29:50.993 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:30:10.851 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/5/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:30:10.852 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/5/hx_meta.bin] successfully, size: 256
+2026-10-29 15:30:10.852 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/5/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:30:10.852 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/5/hx_pose.bin] successfully, size: 128
+2026-10-29 15:30:10.853 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/5/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:30:10.853 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/5/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:30:10.854 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/5/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:30:10.854 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/5/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:30:10.854 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/5/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:30:10.855 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/5/hx_lead.bin] successfully, size: 256
+2026-10-29 15:30:10.855 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/5/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:30:10.855 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/5/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:30:10.856 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/5/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:30:10.856 | INFO     | yamain.command.run:run:92 - >>> [6] start
+2026-10-29 15:30:10.858 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:30:30.724 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/6/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:30:30.725 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/6/hx_meta.bin] successfully, size: 256
+2026-10-29 15:30:30.725 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/6/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:30:30.726 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/6/hx_pose.bin] successfully, size: 128
+2026-10-29 15:30:30.726 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/6/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:30:30.726 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/6/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:30:30.727 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/6/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:30:30.727 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/6/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:30:30.727 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/6/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:30:30.728 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/6/hx_lead.bin] successfully, size: 256
+2026-10-29 15:30:30.728 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/6/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:30:30.729 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/6/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:30:30.729 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/6/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:30:30.729 | INFO     | yamain.command.run:run:92 - >>> [7] start
+2026-10-29 15:30:30.731 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:30:50.646 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/7/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:30:50.647 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/7/hx_meta.bin] successfully, size: 256
+2026-10-29 15:30:50.647 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/7/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:30:50.647 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/7/hx_pose.bin] successfully, size: 128
+2026-10-29 15:30:50.648 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/7/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:30:50.648 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/7/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:30:50.648 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/7/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:30:50.649 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/7/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:30:50.649 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/7/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:30:50.649 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/7/hx_lead.bin] successfully, size: 256
+2026-10-29 15:30:50.650 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/7/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:30:50.650 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/7/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:30:50.650 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/7/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:30:50.651 | INFO     | yamain.command.run:run:92 - >>> [8] start
+2026-10-29 15:30:50.652 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:31:10.628 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/8/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:31:10.629 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/8/hx_meta.bin] successfully, size: 256
+2026-10-29 15:31:10.629 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/8/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:31:10.629 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/8/hx_pose.bin] successfully, size: 128
+2026-10-29 15:31:10.630 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/8/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:31:10.630 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/8/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:31:10.631 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/8/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:31:10.631 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/8/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:31:10.631 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/8/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:31:10.632 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/8/hx_lead.bin] successfully, size: 256
+2026-10-29 15:31:10.632 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/8/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:31:10.632 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/8/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:31:10.633 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/8/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:31:10.633 | INFO     | yamain.command.run:run:92 - >>> [9] start
+2026-10-29 15:31:10.635 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:31:30.618 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/9/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:31:30.618 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/9/hx_meta.bin] successfully, size: 256
+2026-10-29 15:31:30.619 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/9/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:31:30.619 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/9/hx_pose.bin] successfully, size: 128
+2026-10-29 15:31:30.619 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/9/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:31:30.620 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/9/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:31:30.620 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/9/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:31:30.620 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/9/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:31:30.621 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/9/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:31:30.621 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/9/hx_lead.bin] successfully, size: 256
+2026-10-29 15:31:30.621 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/9/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:31:30.622 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/9/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:31:30.622 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/9/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:31:30.622 | INFO     | yamain.command.run:run:92 - >>> [10] start
+2026-10-29 15:31:30.624 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:31:50.588 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/10/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:31:50.589 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/10/hx_meta.bin] successfully, size: 256
+2026-10-29 15:31:50.589 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/10/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:31:50.590 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/10/hx_pose.bin] successfully, size: 128
+2026-10-29 15:31:50.590 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/10/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:31:50.590 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/10/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:31:50.591 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/10/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:31:50.591 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/10/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:31:50.591 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/10/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:31:50.592 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/10/hx_lead.bin] successfully, size: 256
+2026-10-29 15:31:50.592 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/10/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:31:50.592 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/10/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:31:50.593 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/10/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:31:50.593 | INFO     | yamain.command.run:run:92 - >>> [11] start
+2026-10-29 15:31:50.595 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:32:10.695 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/11/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:32:10.695 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/11/hx_meta.bin] successfully, size: 256
+2026-10-29 15:32:10.696 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/11/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:32:10.696 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/11/hx_pose.bin] successfully, size: 128
+2026-10-29 15:32:10.696 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/11/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:32:10.697 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/11/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:32:10.697 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/11/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:32:10.697 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/11/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:32:10.698 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/11/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:32:10.698 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/11/hx_lead.bin] successfully, size: 256
+2026-10-29 15:32:10.698 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/11/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:32:10.699 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/11/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:32:10.699 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/11/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:32:10.699 | INFO     | yamain.command.run:run:92 - >>> [12] start
+2026-10-29 15:32:10.701 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:32:30.734 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/12/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:32:30.734 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/12/hx_meta.bin] successfully, size: 256
+2026-10-29 15:32:30.735 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/12/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:32:30.735 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/12/hx_pose.bin] successfully, size: 128
+2026-10-29 15:32:30.735 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/12/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:32:30.736 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/12/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:32:30.736 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/12/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:32:30.737 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/12/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:32:30.737 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/12/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:32:30.737 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/12/hx_lead.bin] successfully, size: 256
+2026-10-29 15:32:30.738 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/12/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:32:30.738 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/12/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:32:30.738 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/12/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:32:30.738 | INFO     | yamain.command.run:run:92 - >>> [13] start
+2026-10-29 15:32:30.740 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:32:50.782 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/13/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:32:50.783 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/13/hx_meta.bin] successfully, size: 256
+2026-10-29 15:32:50.783 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/13/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:32:50.783 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/13/hx_pose.bin] successfully, size: 128
+2026-10-29 15:32:50.784 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/13/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:32:50.784 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/13/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:32:50.785 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/13/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:32:50.785 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/13/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:32:50.785 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/13/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:32:50.786 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/13/hx_lead.bin] successfully, size: 256
+2026-10-29 15:32:50.786 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/13/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:32:50.786 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/13/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:32:50.787 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/13/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:32:50.787 | INFO     | yamain.command.run:run:92 - >>> [14] start
+2026-10-29 15:32:50.789 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:33:10.829 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/14/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:33:10.830 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/14/hx_meta.bin] successfully, size: 256
+2026-10-29 15:33:10.830 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/14/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:33:10.830 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/14/hx_pose.bin] successfully, size: 128
+2026-10-29 15:33:10.831 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/14/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:33:10.831 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/14/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:33:10.831 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/14/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:33:10.832 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/14/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:33:10.832 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/14/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:33:10.832 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/14/hx_lead.bin] successfully, size: 256
+2026-10-29 15:33:10.833 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/14/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:33:10.833 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/14/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:33:10.834 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/14/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:33:10.834 | INFO     | yamain.command.run:run:92 - >>> [15] start
+2026-10-29 15:33:10.836 | INFO     | frontend.npu_subgraph_op:pyrun:89 - running npu subgraph: subgraph_npu_0, version: 1, target batch: 0
+2026-10-29 15:33:30.910 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_compiled/15/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:33:30.910 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_compiled/15/hx_meta.bin] successfully, size: 256
+2026-10-29 15:33:30.910 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_compiled/15/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:33:30.911 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_compiled/15/hx_pose.bin] successfully, size: 128
+2026-10-29 15:33:30.911 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_compiled/15/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:33:30.912 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_compiled/15/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:33:30.912 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_compiled/15/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:33:30.912 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_compiled/15/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:33:30.913 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_compiled/15/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:33:30.913 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_compiled/15/hx_lead.bin] successfully, size: 256
+2026-10-29 15:33:30.913 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_compiled/15/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:33:30.914 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_compiled/15/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:33:30.914 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_compiled/15/hx_desire_state.bin] successfully, size: 128
+real 330.16
+user 0.01
+sys 0.01

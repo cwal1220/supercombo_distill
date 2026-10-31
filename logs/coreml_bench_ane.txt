@@ -1,0 +1,4 @@
+session 459 s
+first run 0.16 s
+CPUAndNeuralEngine 40 ms/frame
+vs CPU: rel err 1.3090726137161255

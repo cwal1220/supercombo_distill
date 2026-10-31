@@ -1,0 +1,38 @@
+/Users/chan/Documents/supercombo_distill/.venv/lib/python3.14/site-packages/numpy/lib/_function_base_impl.py:1541: RuntimeWarning: invalid value encountered in subtract
+  a = op(a[slice1], a[slice2])
+2026-09-27--02-44-40-679__000 (9148 frames)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.0945             nan          6.6914         14.5842         25.6526          7.2775          0.7131          4.9391         10.6904         16.0855
+S8 + U16 (Pulsar2 quantizers)             0.0380          0.2821          4.8576         13.9145         25.5732          4.3934          0.1451          3.8700          8.2488         13.0322
+2026-09-27--02-44-40-679__015 (1440 frames)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.3066             nan         17.8085         28.4855         33.0757          5.9720          0.7689          3.4976         22.0836         18.2603
+S8 + U16 (Pulsar2 quantizers)             0.0803          0.3467          9.8124         21.2475         31.6067          4.1098          0.1474          2.2258         13.5394         15.5361
+2026-10-05--00-07-29-810__000 (8119 frames)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.0445             nan          8.2297             nan             nan         10.1140          0.0525          3.5139             nan             nan
+S8 + U16 (Pulsar2 quantizers)             0.0382          0.1653          8.0772          6.6043          9.7158          8.9520          0.0632          2.0498          6.0867          8.3595
+2026-10-05--16-28-44-410__000 (9078 frames)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.0284             nan          5.5622         10.1146         16.6642          1.8632          0.0756          3.3998          8.0231         11.1838
+S8 + U16 (Pulsar2 quantizers)             0.0368          0.3020          6.4715          9.3549         14.5285          1.2417          0.1334         16.6471          7.7644         10.9099
+2026-10-05--16-28-44-410__015 (4190 frames)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.0665             nan         12.3673         26.7877         31.0652          3.2557          0.0785          8.3160         24.4627         19.6411
+S8 + U16 (Pulsar2 quantizers)             0.0812          0.2847         17.1207         21.5494         28.3527          3.2953          0.1606         10.7069         17.2730         17.7209
+2026-10-22--23-22-40-918__000 (5643 frames)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.0683             nan         14.7771         19.0941         19.7482          4.9677          0.1626          7.2505         16.2113         13.4750
+S8 + U16 (Pulsar2 quantizers)             0.0502          0.3030         11.6470         14.6119         19.6102          2.8678          0.1603          5.8380         10.7598         10.9559
+2026-10-25--22-42-26-175__000 (9138 frames)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.0702             nan         13.8346         25.5947         37.6456          4.3766          0.1300          8.9701         19.2039         23.6125
+S8 + U16 (Pulsar2 quantizers)             0.0491          0.3168         10.5021         27.4258         46.6739          3.3686          0.1654         10.2326         19.5281         30.3081
+2026-10-25--22-42-26-175__015 (1497 frames)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.0842             nan         18.0812         24.3803         27.7036          5.0253          0.1502         14.4681         19.2026         17.5086
+S8 + U16 (Pulsar2 quantizers)             0.0568          0.3106         16.4760         20.1000         31.0917          3.7422          0.1708         17.4468         12.6191         17.0906
+mean over 8 units (frame-weighted)
+model                                    lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2  false_lead_pct  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                       0.0691             nan          9.9424         18.5782         25.8498          5.8264          0.2362          5.0618         14.8609         16.4634
+S8 + U16 (Pulsar2 quantizers)             0.0468          0.2693          9.0729         14.4833         22.7901          4.4262          0.1313          4.9961         10.6219         14.3044

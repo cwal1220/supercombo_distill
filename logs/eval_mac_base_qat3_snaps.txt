@@ -1,0 +1,6 @@
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_qat3/ep1 (S8)          0.0571          0.2583         12.7101         10.3367         11.8814          6.6481          0.1285
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_qat3/ep2 (S8)          0.0555          0.2619         12.2570         10.3685         11.9429          6.8385          0.1323
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_qat3/ep3 (S8)          0.0532          0.2528         12.4249         10.2851         11.8278          6.6462          0.1323

@@ -1,0 +1,436 @@
+Building native ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+2026-10-29 15:38:38.075 | INFO     | yamain.command.run:run:92 - >>> [0] start
+[W1029 15:38:38.141919774 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.162971566 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.171924590 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.182428695 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.188987182 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.197374999 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.206447898 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.211136972 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.219613372 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.228083314 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.237736462 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.244628865 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.252038350 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:38.238 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/0/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:38.239 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:38.239 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:38.239 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:38.240 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:38.240 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:38.241 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:38.241 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.241 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:38.242 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:38.242 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.242 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:38.243 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/0/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:38.243 | INFO     | yamain.command.run:run:92 - >>> [1] start
+[W1029 15:38:38.294106977 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.304598748 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.312271774 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.322709962 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.327397662 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.335823103 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.344364628 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.349006203 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.357442270 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.365953045 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.374761944 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.381237931 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.388543167 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:38.367 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/1/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:38.367 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:38.368 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:38.368 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:38.368 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:38.369 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:38.369 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:38.369 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.370 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:38.370 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:38.370 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.371 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:38.371 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/1/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:38.371 | INFO     | yamain.command.run:run:92 - >>> [2] start
+[W1029 15:38:38.422734267 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.433710662 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.441585772 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.452143168 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.456868034 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.465258392 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.473746292 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.478447992 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.486871850 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.495379708 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.504281233 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.509802097 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.517133999 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:38.494 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/2/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:38.494 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:38.495 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:38.495 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:38.495 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:38.496 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:38.496 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:38.496 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.497 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:38.497 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:38.497 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.498 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:38.498 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/2/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:38.498 | INFO     | yamain.command.run:run:92 - >>> [3] start
+[W1029 15:38:38.549518144 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.560244248 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.568252691 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.578938045 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.583791786 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.592236311 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.600826461 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.605588535 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.614176060 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.622682002 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.631576234 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.636996515 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.644412917 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:38.620 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/3/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:38.621 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:38.621 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:38.621 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:38.622 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:38.622 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:38.622 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:38.623 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.623 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:38.623 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:38.624 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.624 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:38.624 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/3/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:38.624 | INFO     | yamain.command.run:run:92 - >>> [4] start
+[W1029 15:38:38.675669440 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.686225086 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.694073404 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.704693550 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.709348749 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.717750691 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.726325257 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.731051373 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.739484565 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.747986923 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.756814948 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.761998896 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.769340632 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:38.745 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/4/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:38.745 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:38.746 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:38.746 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:38.747 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:38.748 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:38.748 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:38.748 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.749 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:38.749 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:38.749 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.750 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:38.750 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/4/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:38.750 | INFO     | yamain.command.run:run:92 - >>> [5] start
+[W1029 15:38:38.801610652 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.812122465 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.819979158 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.830438929 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.835242461 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.843695861 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.852171928 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.856861002 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.865315819 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.873767303 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.882617869 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.888073483 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.895413177 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:38.871 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/5/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:38.872 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:38.873 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:38.874 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:38.874 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:38.874 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:38.875 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:38.875 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.875 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:38.876 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:38.876 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:38.876 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:38.877 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/5/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:38.877 | INFO     | yamain.command.run:run:92 - >>> [6] start
+[W1029 15:38:38.928078072 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.938566218 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.946361494 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.956783849 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.961600548 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.969974615 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.978465140 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.983149672 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.991613739 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.000048681 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.008988080 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.014340528 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:38.021700347 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:38.997 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/6/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:38.998 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:38.998 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:38.998 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:38.999 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:38.999 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:39.000 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:39.000 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.000 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:39.001 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:39.001 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.002 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:39.002 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/6/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:39.002 | INFO     | yamain.command.run:run:92 - >>> [7] start
+[W1029 15:38:39.053345535 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.063924515 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.071574666 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.082350895 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.087006386 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.095420328 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.103929978 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.108614844 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.117005995 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.125461186 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.134340502 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.140076116 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.147419977 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:39.123 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/7/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:39.124 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:39.124 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:39.124 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:39.125 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:39.125 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:39.125 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:39.126 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.126 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:39.126 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:39.127 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.127 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:39.128 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/7/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:39.128 | INFO     | yamain.command.run:run:92 - >>> [8] start
+[W1029 15:38:39.179140207 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.189118396 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.196765464 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.207472235 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.212253475 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.220638917 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.229124151 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.233788558 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.242179709 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.250613484 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.259453008 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.264948414 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.272270900 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:39.248 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/8/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:39.248 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:39.248 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:39.249 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:39.249 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:39.249 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:39.250 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:39.250 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.250 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:39.251 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:39.251 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.251 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:39.252 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/8/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:39.252 | INFO     | yamain.command.run:run:92 - >>> [9] start
+[W1029 15:38:39.303276881 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.313944652 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.321855637 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.332362158 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.337089107 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.345464799 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.353956866 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.358601898 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.367038007 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.375495157 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.384325515 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.389876004 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.397249990 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:39.373 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/9/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:39.373 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:39.374 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:39.374 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:39.374 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:39.375 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:39.375 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:39.375 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.376 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:39.376 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:39.376 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.377 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:39.377 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/9/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:39.377 | INFO     | yamain.command.run:run:92 - >>> [10] start
+[W1029 15:38:39.428581887 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.439186200 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.447317684 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.458527037 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.463439944 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.471922261 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.480440036 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.485178318 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.493649427 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.502169368 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.510942601 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.516434174 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.523791368 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:39.499 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/10/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:39.499 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:39.500 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:39.500 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:39.501 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:39.501 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:39.501 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:39.502 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.502 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:39.502 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:39.503 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.503 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:39.503 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/10/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:39.503 | INFO     | yamain.command.run:run:92 - >>> [11] start
+[W1029 15:38:39.554717099 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.565366912 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.573200230 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.583430127 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.588142284 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.596523393 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.605018418 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.609695117 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.618179225 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.626671251 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.635424858 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.640782890 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.648117875 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:39.623 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/11/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:39.624 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:39.624 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:39.625 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:39.625 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:39.625 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:39.626 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:39.626 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.626 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:39.627 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:39.627 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.627 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:39.628 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/11/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:39.628 | INFO     | yamain.command.run:run:92 - >>> [12] start
+[W1029 15:38:39.679241190 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.689769336 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.697672862 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.708212967 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.712924624 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.721486524 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.730012716 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.734728040 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.743147690 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.751618340 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.760401656 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.765802479 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.773204756 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:39.748 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/12/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:39.751 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:39.751 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:39.752 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:39.752 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:39.752 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:39.753 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:39.753 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.753 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:39.754 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:39.754 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.754 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:39.755 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/12/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:39.755 | INFO     | yamain.command.run:run:92 - >>> [13] start
+[W1029 15:38:39.806388942 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.817185629 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.825330280 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.835745009 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.840606750 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.849069442 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.857564759 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.862262333 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.870687983 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.879210050 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.887976033 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.893339064 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.900703716 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:39.873 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/13/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:39.873 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:39.873 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:39.874 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:39.874 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:39.875 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:39.875 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:39.875 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.876 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:39.876 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:39.876 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:39.877 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:39.877 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/13/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:39.877 | INFO     | yamain.command.run:run:92 - >>> [14] start
+[W1029 15:38:39.928406662 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.938922683 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.946810543 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.957417772 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.962232679 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.970701621 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.979253480 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.983978262 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.992417204 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.000811271 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.009684420 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.015048035 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:39.022412145 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:39.998 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/14/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:39.998 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:39.999 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:39.999 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:39.999 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:40.000 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:40.000 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:40.000 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:40.001 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:40.001 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:40.001 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:40.002 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:40.002 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/14/hx_desire_state.bin] successfully, size: 128
+2026-10-29 15:38:40.002 | INFO     | yamain.command.run:run:92 - >>> [15] start
+[W1029 15:38:40.053373043 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.064031189 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.071777883 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.082145946 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.086887895 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.095274670 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.103738904 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.108455436 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.116868086 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.125371903 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.134291386 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.139665875 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1029 15:38:40.147026569 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+2026-10-29 15:38:40.122 | INFO     | yamain.command.run:write_output:55 - write [out_hidden] to [outputs/quant_flip8/sim/out_q_Reference/15/out_hidden.bin] successfully, size: 2048
+2026-10-29 15:38:40.123 | INFO     | yamain.command.run:write_output:55 - write [hx_meta] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_meta.bin] successfully, size: 256
+2026-10-29 15:38:40.123 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_pred] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_desire_pred.bin] successfully, size: 128
+2026-10-29 15:38:40.123 | INFO     | yamain.command.run:write_output:55 - write [hx_pose] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_pose.bin] successfully, size: 128
+2026-10-29 15:38:40.124 | INFO     | yamain.command.run:write_output:55 - write [hx_wide_from_device] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_wide_from_device.bin] successfully, size: 128
+2026-10-29 15:38:40.124 | INFO     | yamain.command.run:write_output:55 - write [hx_road_transform] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_road_transform.bin] successfully, size: 128
+2026-10-29 15:38:40.124 | INFO     | yamain.command.run:write_output:55 - write [hx_lanes] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_lanes.bin] successfully, size: 256
+2026-10-29 15:38:40.125 | INFO     | yamain.command.run:write_output:55 - write [hx_lane_prob] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_lane_prob.bin] successfully, size: 64
+2026-10-29 15:38:40.125 | INFO     | yamain.command.run:write_output:55 - write [hx_road_edges] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_road_edges.bin] successfully, size: 128
+2026-10-29 15:38:40.125 | INFO     | yamain.command.run:write_output:55 - write [hx_lead] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_lead.bin] successfully, size: 256
+2026-10-29 15:38:40.126 | INFO     | yamain.command.run:write_output:55 - write [hx_lead_prob] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_lead_prob.bin] successfully, size: 64
+2026-10-29 15:38:40.126 | INFO     | yamain.command.run:write_output:55 - write [hx_plan] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_plan.bin] successfully, size: 1024
+2026-10-29 15:38:40.127 | INFO     | yamain.command.run:write_output:55 - write [hx_desire_state] to [outputs/quant_flip8/sim/out_q_Reference/15/hx_desire_state.bin] successfully, size: 128
+real 13.33
+user 0.01
+sys 0.02

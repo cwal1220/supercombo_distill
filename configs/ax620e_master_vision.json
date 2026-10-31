@@ -1,0 +1,51 @@
+{
+ "model_type": "ONNX",
+ "npu_mode": "NPU1",
+ "target_hardware": "AX620E",
+ "input": "/data/supercombo_distill/models/master_vision.onnx",
+ "output_dir": "/data/supercombo_distill/outputs/ax620e_master_vision",
+ "output_name": "m.axmodel",
+ "quant": {
+  "input_configs": [
+   {
+    "tensor_name": "input_imgs",
+    "calibration_dataset": "/data/supercombo_distill/calib/dummy/input_imgs.tar",
+    "calibration_size": -1,
+    "calibration_format": "Numpy"
+   },
+   {
+    "tensor_name": "big_input_imgs",
+    "calibration_dataset": "/data/supercombo_distill/calib/dummy/big_input_imgs.tar",
+    "calibration_size": -1,
+    "calibration_format": "Numpy"
+   }
+  ],
+  "calibration_method": "MinMax",
+  "precision_analysis": false,
+  "layer_configs": [
+   {
+    "start_tensor_names": [
+     "DEFAULT"
+    ],
+    "end_tensor_names": [
+     "DEFAULT"
+    ],
+    "data_type": "U16"
+   }
+  ]
+ },
+ "input_processors": [
+  {
+   "tensor_name": "input_imgs",
+   "src_dtype": "U8"
+  },
+  {
+   "tensor_name": "big_input_imgs",
+   "src_dtype": "U8"
+  }
+ ],
+ "compiler": {
+  "check": 0,
+  "npu_perf": true
+ }
+}

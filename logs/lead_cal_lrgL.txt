@@ -1,0 +1,22 @@
+/Users/chan/Documents/supercombo_distill/scripts/lead_cal.py:70: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:821.)
+  a, b1, b = float(w[0]), -float(w[1]), float(b)
+fitted on lrg_npu (logistic): far-lead x0 80.0 b0 -0.08 b1 0.52 a 1.080; global shift -0.40
+lrg_npu (5 routes, 34269 frames), false / missed %:
+  shipped                5.06  10.59
+  student                8.54   7.56
+  global shift           4.79  10.51
+  far-lead calibration   5.04   9.45
+lrg_npu (5 routes, 34269 frames), false / missed %:
+  shipped                5.06  10.59
+  student                8.54   7.56
+  global shift           4.79  10.51
+  far-lead calibration   5.04   9.45
+  without 2026-09-27--02-44-40-679: x0 80.0 b0 -0.11 b1 0.65 a 1.013
+  without 2026-10-05--00-07-29-810: x0 80.0 b0 -0.18 b1 0.53 a 1.057
+  without 2026-10-05--16-28-44-410: x0 80.0 b0 +0.03 b1 0.44 a 1.134
+  without 2026-10-22--23-22-40-918: x0 80.0 b0 -0.13 b1 0.48 a 1.095
+  without 2026-10-25--22-42-26-175: x0 80.0 b0 -0.08 b1 0.47 a 1.104
+lrg_npu leave-one-route-out far-lead calibration: false 4.79% missed 9.74%
+dead lead_prob features [5, 12, 15] on 256 calibration samples; using 12
+saved ckpt/mac_lrg/ema_calL.pt

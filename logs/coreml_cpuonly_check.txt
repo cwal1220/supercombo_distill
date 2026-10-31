@@ -1,0 +1,13 @@
+CPUOnly 210 ms/frame
+  lanes              rel err 0.0108   vs PC label 0.0109
+  lane_prob          rel err 0.0355   vs PC label 0.0363
+  road_edges         rel err 0.0094   vs PC label 0.0096
+  meta               rel err 0.0092   vs PC label 0.0095
+  desire_pred        rel err 0.0118   vs PC label 0.0122
+  pose               rel err 0.0172   vs PC label 0.0175
+  wide_from_device   rel err 0.0024   vs PC label 0.0024
+  road_transform     rel err 0.0034   vs PC label 0.0032
+  plan               rel err 2.7068   vs PC label 2.7084
+  lead               rel err 4.5142   vs PC label 4.5164
+  lead_prob          rel err 0.7806   vs PC label 0.7806
+  desire_state       rel err 1.2222   vs PC label 1.2224

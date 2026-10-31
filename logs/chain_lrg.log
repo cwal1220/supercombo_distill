@@ -1,0 +1,8 @@
+Sat Oct 31 18:54:18 KST 2026 LRG from ckpt/mac_lrf/ema.pt
+Sat Oct 31 19:27:25 KST 2026 chain_lrg.sh stopped during training (PID 27852 kept); chain_lrg2.sh continues with the logistic calibration
+Sat Oct 31 21:02:00 KST 2026 LRG best ckpt/mac_lrg/ema.pt
+Sat Oct 31 21:08:41 KST 2026 built lrg_ext
+Sat Oct 31 21:47:56 KST 2026 p2sim lrg_ext done
+Sat Oct 31 21:48:03 KST 2026 LRG calibrated: ckpt/mac_lrg/ema_calL.pt
+Sat Oct 31 21:55:31 KST 2026 built lrg_calL_ext
+Sat Oct 31 22:34:31 KST 2026 p2sim lrg_calL_ext done

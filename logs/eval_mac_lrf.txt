@@ -1,0 +1,23 @@
+/Users/chan/Documents/supercombo_distill/.venv/lib/python3.14/site-packages/numpy/lib/_function_base_impl.py:1541: RuntimeWarning: invalid value encountered in subtract
+  a = op(a[slice1], a[slice2])
+/Users/chan/Documents/supercombo_distill/.venv/lib/python3.14/site-packages/numpy/lib/_function_base_impl.py:1541: RuntimeWarning: invalid value encountered in subtract
+  a = op(a[slice1], a[slice2])
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:116: RuntimeWarning: Mean of empty slice
+  r["lat_acc"] = np.nanmean(np.abs(la - lr)[sel])
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:118: RuntimeWarning: Mean of empty slice
+  r["long_acc"] = np.nanmean(np.abs(a - ar)[sel]) if a is not None else np.nan
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:120: RuntimeWarning: Mean of empty slice
+  r["plan_y2s_cm"] = np.nanmean(np.abs(y2(q) - y2(ref))[sel]) * 100
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:135: RuntimeWarning: Mean of empty slice
+  r["lead_x_m"] = np.nanmean(np.abs(q["lead_x"] - ref["lead_x"])[lead])
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:136: RuntimeWarning: Mean of empty slice
+  r["gas2"] = np.nanmean(np.abs(q["gas2"] - ref["gas2"])[sel])
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:140: RuntimeWarning: Mean of empty slice
+  r["vx0_cms"] = np.nanmean(np.abs(q["plan_v"][:, 0] - ref["plan_v"][:, 0])[sel]) * 100 if "plan_v" in q else np.nan
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2       lead_x_lf  false_lead_pct         vx0_cms  lanes_ldfix_cm  width_ldfix_cm
+board NPU (shipped)                   0.0691             nan          9.9424         18.5782         25.8498          5.8264          0.2362          4.2834          5.0618             nan         14.8609         16.4634
+small fp32                            0.0515          0.2062          9.6207         16.3484         23.0344          5.4256          0.0898          3.5583          6.8048         64.7308         12.6225         15.2316
+big teacher                           0.0000          0.0000          0.0000         17.9575         23.8061          0.0000          0.0000          0.0000          0.0000          0.0000         13.1839         12.3995
+student mac_lrc/ema (S8)              0.0454          0.2552          9.1060          9.5258         11.8157          4.6297          0.1285          3.1965          8.9954         68.6181         13.7230         20.7437
+student mac_lrf (S8)                  0.0464          0.2693          9.0955         14.5103         22.8291          4.4311          0.1310          3.0974          7.8911         66.0779         10.6253         14.3280
+student mac_lrf/ema (S8)              0.0467          0.2693          9.0965         14.4833         22.7901          4.4262          0.1313          3.0934          8.0762         66.1453         10.6220         14.3045

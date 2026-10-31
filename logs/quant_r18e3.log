@@ -1,0 +1,775 @@
++--------------------------+----------------------------+
+|        Model Name        |         OnnxModel          |
++--------------------------+----------------------------+
+|        Model Info        | Op Set: 17 / IR Version: 8 |
++--------------------------+----------------------------+
+|      IN: input_imgs      | float32: (1, 12, 128, 256) |
+|    IN: big_input_imgs    | float32: (1, 12, 128, 256) |
+|        IN: desire        |    float32: (1, 25, 8)     |
+|   IN: features_buffer    |   float32: (1, 24, 512)    |
+|  IN: traffic_convention  |      float32: (1, 2)       |
+|     OUT: out_hidden      |     float32: (1, 512)      |
+|       OUT: hx_meta       |      float32: (1, 64)      |
+|   OUT: hx_desire_pred    |      float32: (1, 32)      |
+|       OUT: hx_pose       |      float32: (1, 32)      |
+| OUT: hx_wide_from_device |      float32: (1, 32)      |
+|  OUT: hx_road_transform  |      float32: (1, 32)      |
+|      OUT: hx_lanes       |      float32: (1, 64)      |
+|    OUT: hx_lane_prob     |      float32: (1, 16)      |
+|    OUT: hx_road_edges    |      float32: (1, 32)      |
+|       OUT: hx_lead       |      float32: (1, 64)      |
+|    OUT: hx_lead_prob     |      float32: (1, 16)      |
+|       OUT: hx_plan       |     float32: (1, 256)      |
+|   OUT: hx_desire_state   |      float32: (1, 32)      |
++--------------------------+----------------------------+
+|           Add            |             6              |
+|           Cast           |             1              |
+|           Clip           |             1              |
+|          Concat          |             4              |
+|         Constant         |             15             |
+|           Conv           |             17             |
+|           Div            |             1              |
+|          Expand          |             1              |
+|         Flatten          |             4              |
+|           Gemm           |             22             |
+|         MaxPool          |             1              |
+|           Mul            |             1              |
+|         ReduceL2         |             1              |
+|           Relu           |             36             |
+|          Shape           |             1              |
+|          Slice           |             3              |
+|         Squeeze          |             1              |
+|        Unsqueeze         |             1              |
++--------------------------+----------------------------+
+|        Model Size        |          62.63 MB          |
++--------------------------+----------------------------+
+2026-10-30 13:15:30.651 | WARNING  | yamain.command.build:fill_default:243 - force onnxsim due to found op_type in {'ConstantOfShape', 'Constant'}
+2026-10-30 13:15:30.651 | WARNING  | yamain.command.build:fill_default:314 - apply default output processor configuration to ['out_hidden', 'hx_meta', 'hx_desire_pred', 'hx_pose', 'hx_wide_from_device', 'hx_road_transform', 'hx_lanes', 'hx_lane_prob', 'hx_road_edges', 'hx_lead', 'hx_lead_prob', 'hx_plan', 'hx_desire_state']
+2026-10-30 13:15:30.652 | WARNING  | yamain.command.build:fill_default:396 - ignore input_imgs csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-30 13:15:30.652 | WARNING  | yamain.command.build:fill_default:396 - ignore big_input_imgs csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-30 13:15:30.652 | WARNING  | yamain.command.build:fill_default:396 - ignore desire csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-30 13:15:30.652 | WARNING  | yamain.command.build:fill_default:396 - ignore features_buffer csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-30 13:15:30.652 | WARNING  | yamain.command.build:fill_default:396 - ignore traffic_convention csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-30 13:15:30.656 | INFO     | yamain.common.util:extract_archive:149 - extract [/data/supercombo_distill/outputs/quant_r18e3/calib/input_imgs.tar] to [/data/supercombo_distill/outputs/quant_r18e3/quant/dataset/input_imgs]...
+2026-10-30 13:15:33.809 | INFO     | yamain.common.util:extract_archive:149 - extract [/data/supercombo_distill/outputs/quant_r18e3/calib/big_input_imgs.tar] to [/data/supercombo_distill/outputs/quant_r18e3/quant/dataset/big_input_imgs]...
+2026-10-30 13:15:35.694 | INFO     | yamain.common.util:extract_archive:149 - extract [/data/supercombo_distill/outputs/quant_r18e3/calib/desire.tar] to [/data/supercombo_distill/outputs/quant_r18e3/quant/dataset/desire]...
+2026-10-30 13:15:35.786 | INFO     | yamain.common.util:extract_archive:149 - extract [/data/supercombo_distill/outputs/quant_r18e3/calib/features_buffer.tar] to [/data/supercombo_distill/outputs/quant_r18e3/quant/dataset/features_buffer]...
+2026-10-30 13:15:35.947 | INFO     | yamain.common.util:extract_archive:149 - extract [/data/supercombo_distill/outputs/quant_r18e3/calib/traffic_convention.tar] to [/data/supercombo_distill/outputs/quant_r18e3/quant/dataset/traffic_convention]...
+2026-10-30 13:15:36.187 | INFO     | frontend.parsers.onnx_parser:parse_onnx_model_proto:87 - onnxslim...
++--------------------------+----------------------------+----------------------------+
+|        Model Name        |         OnnxModel          |         OnnxModel          |
++--------------------------+----------------------------+----------------------------+
+|        Model Info        | Op Set: 17 / IR Version: 8 | Op Set: 17 / IR Version: 8 |
++--------------------------+----------------------------+----------------------------+
+|      IN: input_imgs      | float32: (1, 12, 128, 256) | float32: (1, 12, 128, 256) |
+|    IN: big_input_imgs    | float32: (1, 12, 128, 256) | float32: (1, 12, 128, 256) |
+|        IN: desire        |    float32: (1, 25, 8)     |    float32: (1, 25, 8)     |
+|   IN: features_buffer    |   float32: (1, 24, 512)    |   float32: (1, 24, 512)    |
+|  IN: traffic_convention  |      float32: (1, 2)       |      float32: (1, 2)       |
+|     OUT: out_hidden      |     float32: (1, 512)      |     float32: (1, 512)      |
+|       OUT: hx_meta       |      float32: (1, 64)      |      float32: (1, 64)      |
+|   OUT: hx_desire_pred    |      float32: (1, 32)      |      float32: (1, 32)      |
+|       OUT: hx_pose       |      float32: (1, 32)      |      float32: (1, 32)      |
+| OUT: hx_wide_from_device |      float32: (1, 32)      |      float32: (1, 32)      |
+|  OUT: hx_road_transform  |      float32: (1, 32)      |      float32: (1, 32)      |
+|      OUT: hx_lanes       |      float32: (1, 64)      |      float32: (1, 64)      |
+|    OUT: hx_lane_prob     |      float32: (1, 16)      |      float32: (1, 16)      |
+|    OUT: hx_road_edges    |      float32: (1, 32)      |      float32: (1, 32)      |
+|       OUT: hx_lead       |      float32: (1, 64)      |      float32: (1, 64)      |
+|    OUT: hx_lead_prob     |      float32: (1, 16)      |      float32: (1, 16)      |
+|       OUT: hx_plan       |     float32: (1, 256)      |     float32: (1, 256)      |
+|   OUT: hx_desire_state   |      float32: (1, 32)      |      float32: (1, 32)      |
++--------------------------+----------------------------+----------------------------+
+|           Add            |             6              |             6              |
+|           Cast           |             1              |             0              |
+|           Clip           |             1              |             1              |
+|          Concat          |             4              |             4              |
+|         Constant         |             15             |             0              |
+|           Conv           |             17             |             17             |
+|           Div            |             1              |             1              |
+|          Expand          |             1              |             1              |
+|         Flatten          |             4              |             4              |
+|           Gemm           |             22             |             22             |
+|         MaxPool          |             1              |             1              |
+|           Mul            |             1              |             0              |
+|         ReduceL2         |             1              |             1              |
+|           Relu           |             36             |             36             |
+|          Shape           |             1              |             0              |
+|          Slice           |             3              |             2              |
+|         Squeeze          |             1              |             1              |
+|        Unsqueeze         |             1              |             1              |
++--------------------------+----------------------------+----------------------------+
+|        Model Size        |          62.63 MB          |          62.63 MB          |
++--------------------------+----------------------------+----------------------------+
+|       Elapsed Time       |                          0.28 s                         |
++--------------------------+----------------------------+----------------------------+
+Building onnx ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+2026-10-30 13:15:38.177 | INFO     | yamain.command.build:quant:867 - save optimized onnx to [/data/supercombo_distill/outputs/quant_r18e3/frontend/optimized.onnx]
+                               Quant Config Table                               
+┏━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━┳━━━━━┓
+┃            ┃            ┃ Dataset    ┃             ┃ Tensor     ┃      ┃     ┃
+┃ Input      ┃ Shape      ┃ Directory  ┃ Data Format ┃ Format     ┃ Mean ┃ Std ┃
+┡━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━╇━━━━━┩
+│ input_imgs │ [1, 12,    │ /data/sup… │ Numpy       │            │ []   │ []  │
+│            │ 128, 256]  │            │             │            │      │     │
+├────────────┼────────────┼────────────┼─────────────┼────────────┼──────┼─────┤
+│ big_input… │ [1, 12,    │ /data/sup… │ Numpy       │            │ []   │ []  │
+│            │ 128, 256]  │            │             │            │      │     │
+├────────────┼────────────┼────────────┼─────────────┼────────────┼──────┼─────┤
+│ desire     │ [1, 25, 8] │ /data/sup… │ Numpy       │            │ []   │ []  │
+├────────────┼────────────┼────────────┼─────────────┼────────────┼──────┼─────┤
+│ features_… │ [1, 24,    │ /data/sup… │ Numpy       │            │ []   │ []  │
+│            │ 512]       │            │             │            │      │     │
+├────────────┼────────────┼────────────┼─────────────┼────────────┼──────┼─────┤
+│ traffic_c… │ [1, 2]     │ /data/sup… │ Numpy       │            │ []   │ []  │
+└────────────┴────────────┴────────────┴─────────────┴────────────┴──────┴─────┘
+Quantization calibration will be executed on cpu
+                               Layer Config Table                               
+┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┓
+┃ Op Type         ┃ Layer Name                    ┃ Input Dtype ┃ Output Dtype ┃
+┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━━━━━━┩
+│ Concat          │ /s/Concat                     │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/conv1/Conv        │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/Relu              │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ MaxPool         │ /s/backbone/maxpool/MaxPool   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Add             │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Add             │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.0/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Add             │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Add             │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.1/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Add             │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Add             │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/layers/layers.2/… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/backbone/down/fused/Conv   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/backbone/down/Relu         │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Conv            │ /s/neck/neck.0/Conv           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/neck/neck.1/Relu           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Slice           │ /s/Slice                      │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Slice           │ /s/Slice_1                    │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Flatten         │ /s/Flatten                    │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Flatten         │ /s/Flatten_1                  │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Concat          │ /s/Concat_1                   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/vis_fc/vis_fc.0/Gemm       │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/vis_fc/vis_fc.1/Relu       │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/summarizer/summarizer.0/G… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/vision_trunk/vision_trunk… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/summarizer/summarizer.1/R… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/vision_trunk/vision_trunk… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/summarizer/summarizer.2/G… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/meta/meta.0/Gemm           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/desire_pred/desire_pred.0… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/pose/pose.0/Gemm           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/wide_from_device/wide_fro… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/road_transform/road_trans… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/lanes/lanes.0/Gemm         │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/lane_prob/lane_prob.0/Gemm │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/road_edges/road_edges.0/G… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Flatten         │ /s/Flatten_2                  │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Unsqueeze       │ /s/Unsqueeze                  │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ LpNormalization │ op_1:onnx.LpNormalization     │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Squeeze         │ /s/Squeeze                    │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Flatten         │ /s/Flatten_3                  │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/desire_enc/desire_enc.0/G… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/desire_enc/desire_enc.1/R… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/traffic_enc/traffic_enc.0… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/traffic_enc/traffic_enc.1… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/lanes/lanes.1/Relu         │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/road_edges/road_edges.1/R… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Concat          │ /s/Concat_2                   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/temporal/temporal.0/Gemm   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/temporal/temporal.1/Relu   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/temporal/temporal.2/Gemm   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/temporal/temporal.3/Relu   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Concat          │ /s/Concat_3                   │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/meta/meta.1/Relu           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/desire_pred/desire_pred.1… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/pose/pose.1/Relu           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/wide_from_device/wide_fro… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/road_transform/road_trans… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/lane_prob/lane_prob.1/Relu │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/lead/lead.0/Gemm           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/lead_prob/lead_prob.0/Gemm │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/lead/lead.1/Relu           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/lead_prob/lead_prob.1/Relu │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/plan/plan.0/Gemm           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/plan/plan.1/Relu           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/plan/plan.2/Gemm           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/plan/plan.3/Relu           │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/desire_state/desire_state… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/desire_state/desire_state… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Gemm            │ /s/desire_state/desire_state… │ U16         │ U16          │
+├─────────────────┼───────────────────────────────┼─────────────┼──────────────┤
+│ Relu            │ /s/desire_state/desire_state… │ U16         │ U16          │
+└─────────────────┴───────────────────────────────┴─────────────┴──────────────┘
+Transformer optimize level: 0
+[W1030 13:15:39.928873740 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+<frozen quant.ppq.executor.op.torch.default>:1673: UserWarning: Using a non-tuple sequence for multidimensional indexing is deprecated and will be changed in pytorch 2.9; use x[tuple(seq)] instead of x[seq]. In pytorch 2.9 this will be interpreted as tensor index, x[torch.tensor(seq)], which will result either in an error or a different result (Triggered internally at /pytorch/torch/csrc/autograd/python_variable_indexing.cpp:347.)
+[W1030 13:15:39.277487058 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Statistics Inf tensor:   0%|          | 0/1 [00:00<?, ?it/s][W1030 13:15:39.712322630 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Statistics Inf tensor: 100%|██████████| 1/1 [00:00<00:00,  2.94it/s]Statistics Inf tensor: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]
+[W1030 13:15:40.410184729 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[13:15:40] AX Set Float Op Table Pass Running ...         
+[13:15:40] AX Set MixPrecision Pass Running ...           
+[13:15:40] AX Set LN Quant dtype Quant Pass Running ...   
+[13:15:40] AX Refine Operation Config Pass Running ...    
+[13:15:40] AX Tanh Operation Format Pass Running ...      
+[13:15:40] AX Confused Op Refine Pass Running ...         
+[13:15:41] AX Quantization Fusion Pass Running ...        
+[13:15:41] AX Quantization Simplify Pass Running ...      
+[13:15:41] AX Parameter Quantization Pass Running ...     
+[W1030 13:15:41.196438239 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[13:15:41] AX Runtime Calibration Pass Running ...        
+Calibration Progress(Phase 1):   0%|          | 0/256 [00:00<?, ?it/s][W1030 13:15:42.077356744 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   0%|          | 1/256 [00:00<01:35,  2.67it/s][W1030 13:15:42.439428771 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   1%|          | 2/256 [00:00<01:15,  3.37it/s][W1030 13:15:42.679635257 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   1%|          | 3/256 [00:00<01:07,  3.73it/s][W1030 13:15:43.905404554 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   2%|▏         | 4/256 [00:01<01:03,  3.98it/s][W1030 13:15:43.136595690 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   2%|▏         | 5/256 [00:01<01:01,  4.11it/s][W1030 13:15:43.366697292 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   2%|▏         | 6/256 [00:01<00:59,  4.19it/s][W1030 13:15:43.596369522 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   3%|▎         | 7/256 [00:01<00:58,  4.26it/s][W1030 13:15:43.822378654 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   3%|▎         | 8/256 [00:01<00:58,  4.27it/s][W1030 13:15:44.057976469 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   4%|▎         | 9/256 [00:02<00:57,  4.29it/s][W1030 13:15:44.287323538 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   4%|▍         | 10/256 [00:02<00:57,  4.31it/s][W1030 13:15:44.516046195 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   4%|▍         | 11/256 [00:02<00:56,  4.35it/s][W1030 13:15:44.739223599 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   5%|▍         | 12/256 [00:02<00:55,  4.38it/s][W1030 13:15:45.981735784 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   5%|▌         | 13/256 [00:03<00:57,  4.26it/s][W1030 13:15:45.210759733 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   5%|▌         | 14/256 [00:03<00:55,  4.33it/s][W1030 13:15:45.436707287 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   6%|▌         | 15/256 [00:03<00:55,  4.37it/s][W1030 13:15:45.652037584 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   6%|▋         | 16/256 [00:03<00:53,  4.45it/s][W1030 13:15:46.898398535 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   7%|▋         | 17/256 [00:04<00:55,  4.28it/s][W1030 13:15:46.133130488 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   7%|▋         | 18/256 [00:04<00:55,  4.31it/s][W1030 13:15:46.372256534 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   7%|▋         | 19/256 [00:04<00:55,  4.26it/s][W1030 13:15:46.606075786 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   8%|▊         | 20/256 [00:04<00:55,  4.25it/s][W1030 13:15:46.842061938 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   8%|▊         | 21/256 [00:05<00:55,  4.26it/s][W1030 13:15:47.069115907 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   9%|▊         | 22/256 [00:05<00:54,  4.33it/s][W1030 13:15:47.295145758 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   9%|▉         | 23/256 [00:05<00:53,  4.34it/s][W1030 13:15:47.519795952 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):   9%|▉         | 24/256 [00:05<00:52,  4.38it/s][W1030 13:15:47.743940358 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  10%|▉         | 25/256 [00:05<00:52,  4.38it/s][W1030 13:15:48.965280411 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  10%|█         | 26/256 [00:06<00:52,  4.42it/s][W1030 13:15:48.185209141 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  11%|█         | 27/256 [00:06<00:51,  4.45it/s][W1030 13:15:48.403812840 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  11%|█         | 28/256 [00:06<00:50,  4.48it/s][W1030 13:15:48.628687119 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  11%|█▏        | 29/256 [00:06<00:50,  4.51it/s][W1030 13:15:48.844192047 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  12%|█▏        | 30/256 [00:07<00:49,  4.54it/s][W1030 13:15:49.059284148 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  12%|█▏        | 31/256 [00:07<00:49,  4.57it/s][W1030 13:15:49.276885982 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  12%|█▎        | 32/256 [00:07<00:49,  4.57it/s][W1030 13:15:49.496769715 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  13%|█▎        | 33/256 [00:07<00:48,  4.58it/s][W1030 13:15:49.713180224 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  13%|█▎        | 34/256 [00:07<00:48,  4.59it/s][W1030 13:15:50.949080470 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  14%|█▎        | 35/256 [00:08<00:49,  4.45it/s][W1030 13:15:50.182072197 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  14%|█▍        | 36/256 [00:08<00:49,  4.42it/s][W1030 13:15:50.399808657 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  14%|█▍        | 37/256 [00:08<00:48,  4.48it/s][W1030 13:15:50.616419584 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  15%|█▍        | 38/256 [00:08<00:48,  4.52it/s][W1030 13:15:50.833038135 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  15%|█▌        | 39/256 [00:09<00:47,  4.55it/s][W1030 13:15:51.048396531 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  16%|█▌        | 40/256 [00:09<00:47,  4.58it/s][W1030 13:15:51.274561059 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  16%|█▌        | 41/256 [00:09<00:47,  4.53it/s][W1030 13:15:51.492076690 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  16%|█▋        | 42/256 [00:09<00:46,  4.56it/s][W1030 13:15:51.705485767 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  17%|█▋        | 43/256 [00:09<00:46,  4.59it/s][W1030 13:15:52.919231925 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  17%|█▋        | 44/256 [00:10<00:45,  4.61it/s][W1030 13:15:52.134155494 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  18%|█▊        | 45/256 [00:10<00:45,  4.62it/s][W1030 13:15:52.347844654 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  18%|█▊        | 46/256 [00:10<00:45,  4.64it/s][W1030 13:15:52.561010902 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  18%|█▊        | 47/256 [00:10<00:45,  4.64it/s][W1030 13:15:52.788956421 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  19%|█▉        | 48/256 [00:10<00:45,  4.58it/s][W1030 13:15:53.003547869 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  19%|█▉        | 49/256 [00:11<00:44,  4.60it/s][W1030 13:15:53.220782424 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  20%|█▉        | 50/256 [00:11<00:44,  4.61it/s][W1030 13:15:53.439346469 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  20%|█▉        | 51/256 [00:11<00:44,  4.60it/s][W1030 13:15:53.650515651 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  20%|██        | 52/256 [00:11<00:44,  4.62it/s][W1030 13:15:54.867430000 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  21%|██        | 53/256 [00:12<00:43,  4.62it/s][W1030 13:15:54.084670058 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  21%|██        | 54/256 [00:12<00:43,  4.62it/s][W1030 13:15:54.302682943 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  21%|██▏       | 55/256 [00:12<00:43,  4.61it/s][W1030 13:15:54.519872043 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  22%|██▏       | 56/256 [00:12<00:43,  4.61it/s][W1030 13:15:54.730443398 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  22%|██▏       | 57/256 [00:12<00:42,  4.63it/s][W1030 13:15:55.951768678 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  23%|██▎       | 58/256 [00:13<00:43,  4.59it/s][W1030 13:15:55.176209855 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  23%|██▎       | 59/256 [00:13<00:43,  4.57it/s][W1030 13:15:55.391289389 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  23%|██▎       | 60/256 [00:13<00:42,  4.60it/s][W1030 13:15:55.604823433 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  24%|██▍       | 61/256 [00:13<00:42,  4.61it/s][W1030 13:15:55.816353867 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  24%|██▍       | 62/256 [00:13<00:41,  4.67it/s][W1030 13:15:56.028678256 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  25%|██▍       | 63/256 [00:14<00:41,  4.69it/s][W1030 13:15:56.244066541 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  25%|██▌       | 64/256 [00:14<00:41,  4.66it/s][W1030 13:15:56.458352624 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  25%|██▌       | 65/256 [00:14<00:41,  4.66it/s][W1030 13:15:56.683103218 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  26%|██▌       | 66/256 [00:14<00:41,  4.58it/s][W1030 13:15:57.900453365 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  26%|██▌       | 67/256 [00:15<00:41,  4.59it/s][W1030 13:15:57.111677931 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  27%|██▋       | 68/256 [00:15<00:40,  4.63it/s][W1030 13:15:57.337074482 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  27%|██▋       | 69/256 [00:15<00:40,  4.58it/s][W1030 13:15:57.553388012 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  27%|██▋       | 70/256 [00:15<00:40,  4.60it/s][W1030 13:15:57.767824514 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  28%|██▊       | 71/256 [00:15<00:39,  4.63it/s][W1030 13:15:58.978397587 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  28%|██▊       | 72/256 [00:16<00:39,  4.63it/s][W1030 13:15:58.197893556 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  29%|██▊       | 73/256 [00:16<00:39,  4.62it/s][W1030 13:15:58.415522956 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  29%|██▉       | 74/256 [00:16<00:39,  4.62it/s][W1030 13:15:58.630597623 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  29%|██▉       | 75/256 [00:16<00:39,  4.63it/s][W1030 13:15:59.850472256 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  30%|██▉       | 76/256 [00:17<00:38,  4.62it/s][W1030 13:15:59.064702765 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  30%|███       | 77/256 [00:17<00:38,  4.63it/s][W1030 13:15:59.276828997 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  30%|███       | 78/256 [00:17<00:38,  4.65it/s][W1030 13:15:59.514852174 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  31%|███       | 79/256 [00:17<00:39,  4.50it/s][W1030 13:15:59.738461659 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  31%|███▏      | 80/256 [00:17<00:39,  4.48it/s][W1030 13:16:00.966182450 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  32%|███▏      | 81/256 [00:18<00:39,  4.45it/s][W1030 13:16:00.186085297 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  32%|███▏      | 82/256 [00:18<00:38,  4.49it/s][W1030 13:16:00.405857437 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  32%|███▏      | 83/256 [00:18<00:38,  4.52it/s][W1030 13:16:00.618948498 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  33%|███▎      | 84/256 [00:18<00:37,  4.56it/s][W1030 13:16:00.844245100 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  33%|███▎      | 85/256 [00:19<00:37,  4.53it/s][W1030 13:16:01.058481864 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  34%|███▎      | 86/256 [00:19<00:37,  4.59it/s][W1030 13:16:01.280255075 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  34%|███▍      | 87/256 [00:19<00:37,  4.54it/s][W1030 13:16:01.494161300 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  34%|███▍      | 88/256 [00:19<00:36,  4.59it/s][W1030 13:16:01.706260204 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  35%|███▍      | 89/256 [00:19<00:36,  4.63it/s][W1030 13:16:02.919759308 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  35%|███▌      | 90/256 [00:20<00:35,  4.66it/s][W1030 13:16:02.144499918 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  36%|███▌      | 91/256 [00:20<00:36,  4.58it/s][W1030 13:16:02.360887212 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  36%|███▌      | 92/256 [00:20<00:35,  4.59it/s][W1030 13:16:02.578978160 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  36%|███▋      | 93/256 [00:20<00:35,  4.59it/s][W1030 13:16:02.792512640 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  37%|███▋      | 94/256 [00:20<00:35,  4.63it/s][W1030 13:16:03.005794124 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  37%|███▋      | 95/256 [00:21<00:34,  4.64it/s][W1030 13:16:03.219114400 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  38%|███▊      | 96/256 [00:21<00:34,  4.66it/s][W1030 13:16:03.428623702 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  38%|███▊      | 97/256 [00:21<00:33,  4.68it/s][W1030 13:16:03.637631424 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  38%|███▊      | 98/256 [00:21<00:33,  4.72it/s][W1030 13:16:03.844702993 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  39%|███▊      | 99/256 [00:22<00:33,  4.74it/s][W1030 13:16:04.062566073 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  39%|███▉      | 100/256 [00:22<00:33,  4.71it/s][W1030 13:16:04.270515222 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  39%|███▉      | 101/256 [00:22<00:32,  4.72it/s][W1030 13:16:04.479462864 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  40%|███▉      | 102/256 [00:22<00:32,  4.75it/s][W1030 13:16:04.708429534 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  40%|████      | 103/256 [00:22<00:33,  4.61it/s][W1030 13:16:05.927557315 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  41%|████      | 104/256 [00:23<00:33,  4.60it/s][W1030 13:16:05.142073130 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  41%|████      | 105/256 [00:23<00:32,  4.62it/s][W1030 13:16:05.352976802 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  41%|████▏     | 106/256 [00:23<00:32,  4.68it/s][W1030 13:16:05.561518241 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  42%|████▏     | 107/256 [00:23<00:31,  4.71it/s][W1030 13:16:05.776068930 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  42%|████▏     | 108/256 [00:23<00:31,  4.68it/s][W1030 13:16:06.993189145 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  43%|████▎     | 109/256 [00:24<00:31,  4.65it/s][W1030 13:16:06.209186411 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  43%|████▎     | 110/256 [00:24<00:31,  4.65it/s][W1030 13:16:06.416279612 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  43%|████▎     | 111/256 [00:24<00:30,  4.73it/s][W1030 13:16:06.625331258 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  44%|████▍     | 112/256 [00:24<00:30,  4.73it/s][W1030 13:16:06.849286594 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  44%|████▍     | 113/256 [00:25<00:30,  4.63it/s][W1030 13:16:07.062729046 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  45%|████▍     | 114/256 [00:25<00:30,  4.66it/s][W1030 13:16:07.272276441 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  45%|████▍     | 115/256 [00:25<00:30,  4.69it/s][W1030 13:16:07.486047016 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  45%|████▌     | 116/256 [00:25<00:29,  4.68it/s][W1030 13:16:07.702633738 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  46%|████▌     | 117/256 [00:25<00:29,  4.66it/s][W1030 13:16:08.914286453 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  46%|████▌     | 118/256 [00:26<00:29,  4.70it/s][W1030 13:16:08.125506715 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  46%|████▋     | 119/256 [00:26<00:29,  4.71it/s][W1030 13:16:08.339472291 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  47%|████▋     | 120/256 [00:26<00:28,  4.71it/s][W1030 13:16:08.561585603 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  47%|████▋     | 121/256 [00:26<00:29,  4.61it/s][W1030 13:16:08.781312973 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  48%|████▊     | 122/256 [00:26<00:29,  4.61it/s][W1030 13:16:09.994039684 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  48%|████▊     | 123/256 [00:27<00:28,  4.63it/s][W1030 13:16:09.205315156 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  48%|████▊     | 124/256 [00:27<00:28,  4.66it/s][W1030 13:16:09.416924667 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  49%|████▉     | 125/256 [00:27<00:28,  4.67it/s][W1030 13:16:09.627896225 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  49%|████▉     | 126/256 [00:27<00:27,  4.70it/s][W1030 13:16:09.842030427 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  50%|████▉     | 127/256 [00:28<00:27,  4.69it/s][W1030 13:16:10.058832322 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  50%|█████     | 128/256 [00:28<00:27,  4.66it/s][W1030 13:16:10.273311942 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  50%|█████     | 129/256 [00:28<00:27,  4.67it/s][W1030 13:16:10.483953629 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  51%|█████     | 130/256 [00:28<00:26,  4.69it/s][W1030 13:16:10.699220826 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  51%|█████     | 131/256 [00:28<00:26,  4.67it/s][W1030 13:16:11.909021562 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  52%|█████▏    | 132/256 [00:29<00:26,  4.72it/s][W1030 13:16:11.128263151 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  52%|█████▏    | 133/256 [00:29<00:26,  4.65it/s][W1030 13:16:11.344068931 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  52%|█████▏    | 134/256 [00:29<00:26,  4.65it/s][W1030 13:16:11.569818018 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  53%|█████▎    | 135/256 [00:29<00:26,  4.58it/s][W1030 13:16:11.784508388 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  53%|█████▎    | 136/256 [00:29<00:26,  4.60it/s][W1030 13:16:12.003135401 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  54%|█████▎    | 137/256 [00:30<00:26,  4.56it/s][W1030 13:16:12.223778150 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  54%|█████▍    | 138/256 [00:30<00:25,  4.58it/s][W1030 13:16:12.434858173 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  54%|█████▍    | 139/256 [00:30<00:25,  4.63it/s][W1030 13:16:12.648666968 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  55%|█████▍    | 140/256 [00:30<00:24,  4.65it/s][W1030 13:16:13.861996893 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  55%|█████▌    | 141/256 [00:31<00:24,  4.67it/s][W1030 13:16:13.071374054 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  55%|█████▌    | 142/256 [00:31<00:24,  4.69it/s][W1030 13:16:13.296948190 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  56%|█████▌    | 143/256 [00:31<00:24,  4.61it/s][W1030 13:16:13.513483719 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  56%|█████▋    | 144/256 [00:31<00:24,  4.62it/s][W1030 13:16:13.722447009 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  57%|█████▋    | 145/256 [00:31<00:23,  4.68it/s][W1030 13:16:14.948459101 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  57%|█████▋    | 146/256 [00:32<00:23,  4.59it/s][W1030 13:16:14.161368450 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  57%|█████▋    | 147/256 [00:32<00:23,  4.63it/s][W1030 13:16:14.366212645 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  58%|█████▊    | 148/256 [00:32<00:22,  4.70it/s][W1030 13:16:14.576993174 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  58%|█████▊    | 149/256 [00:32<00:22,  4.72it/s][W1030 13:16:14.817428628 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  59%|█████▊    | 150/256 [00:32<00:23,  4.50it/s][W1030 13:16:15.045316878 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  59%|█████▉    | 151/256 [00:33<00:23,  4.49it/s][W1030 13:16:15.257432109 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  59%|█████▉    | 152/256 [00:33<00:22,  4.56it/s][W1030 13:16:15.467855394 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  60%|█████▉    | 153/256 [00:33<00:22,  4.62it/s][W1030 13:16:15.676694398 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  60%|██████    | 154/256 [00:33<00:21,  4.66it/s][W1030 13:16:16.893353224 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  61%|██████    | 155/256 [00:34<00:21,  4.65it/s][W1030 13:16:16.107591611 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  61%|██████    | 156/256 [00:34<00:21,  4.65it/s][W1030 13:16:16.334252997 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  61%|██████▏   | 157/256 [00:34<00:21,  4.58it/s][W1030 13:16:16.543913414 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  62%|██████▏   | 158/256 [00:34<00:21,  4.64it/s][W1030 13:16:16.764873506 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  62%|██████▏   | 159/256 [00:34<00:21,  4.60it/s][W1030 13:16:17.973485307 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  62%|██████▎   | 160/256 [00:35<00:20,  4.68it/s][W1030 13:16:17.181041824 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  63%|██████▎   | 161/256 [00:35<00:20,  4.70it/s][W1030 13:16:17.393194061 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  63%|██████▎   | 162/256 [00:35<00:19,  4.72it/s][W1030 13:16:17.604025306 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  64%|██████▎   | 163/256 [00:35<00:19,  4.72it/s][W1030 13:16:17.816120834 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  64%|██████▍   | 164/256 [00:35<00:19,  4.71it/s][W1030 13:16:18.031238761 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  64%|██████▍   | 165/256 [00:36<00:19,  4.71it/s][W1030 13:16:18.241717595 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  65%|██████▍   | 166/256 [00:36<00:19,  4.72it/s][W1030 13:16:18.447380753 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  65%|██████▌   | 167/256 [00:36<00:18,  4.74it/s][W1030 13:16:18.659939614 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  66%|██████▌   | 168/256 [00:36<00:18,  4.73it/s][W1030 13:16:19.870390823 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  66%|██████▌   | 169/256 [00:37<00:18,  4.74it/s][W1030 13:16:19.081206407 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  66%|██████▋   | 170/256 [00:37<00:18,  4.74it/s][W1030 13:16:19.290354919 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  67%|██████▋   | 171/256 [00:37<00:17,  4.75it/s][W1030 13:16:19.502078663 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  67%|██████▋   | 172/256 [00:37<00:17,  4.74it/s][W1030 13:16:19.711643380 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  68%|██████▊   | 173/256 [00:37<00:17,  4.74it/s][W1030 13:16:20.922421132 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  68%|██████▊   | 174/256 [00:38<00:17,  4.74it/s][W1030 13:16:20.132230642 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  68%|██████▊   | 175/256 [00:38<00:17,  4.74it/s][W1030 13:16:20.360131822 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  69%|██████▉   | 176/256 [00:38<00:17,  4.64it/s][W1030 13:16:20.578837897 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  69%|██████▉   | 177/256 [00:38<00:17,  4.64it/s][W1030 13:16:20.791531304 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  70%|██████▉   | 178/256 [00:38<00:16,  4.66it/s][W1030 13:16:21.002960597 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  70%|██████▉   | 179/256 [00:39<00:16,  4.67it/s][W1030 13:16:21.211045787 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  70%|███████   | 180/256 [00:39<00:16,  4.70it/s][W1030 13:16:21.422657329 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  71%|███████   | 181/256 [00:39<00:15,  4.71it/s][W1030 13:16:21.635312905 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  71%|███████   | 182/256 [00:39<00:15,  4.71it/s][W1030 13:16:22.852539160 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  71%|███████▏  | 183/256 [00:40<00:15,  4.68it/s][W1030 13:16:22.065059365 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  72%|███████▏  | 184/256 [00:40<00:15,  4.70it/s][W1030 13:16:22.281332961 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  72%|███████▏  | 185/256 [00:40<00:15,  4.67it/s][W1030 13:16:22.488290995 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  73%|███████▎  | 186/256 [00:40<00:14,  4.72it/s][W1030 13:16:22.719831156 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  73%|███████▎  | 187/256 [00:40<00:15,  4.58it/s][W1030 13:16:23.941515176 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  73%|███████▎  | 188/256 [00:41<00:14,  4.57it/s][W1030 13:16:23.150861613 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  74%|███████▍  | 189/256 [00:41<00:14,  4.63it/s][W1030 13:16:23.368633619 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  74%|███████▍  | 190/256 [00:41<00:14,  4.63it/s][W1030 13:16:23.578364553 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  75%|███████▍  | 191/256 [00:41<00:13,  4.67it/s][W1030 13:16:23.788169446 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  75%|███████▌  | 192/256 [00:41<00:13,  4.69it/s][W1030 13:16:24.018795451 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  75%|███████▌  | 193/256 [00:42<00:13,  4.54it/s][W1030 13:16:24.240194102 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  76%|███████▌  | 194/256 [00:42<00:13,  4.57it/s][W1030 13:16:24.447687345 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  76%|███████▌  | 195/256 [00:42<00:13,  4.63it/s][W1030 13:16:24.656447330 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  77%|███████▋  | 196/256 [00:42<00:12,  4.66it/s][W1030 13:16:25.883585777 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  77%|███████▋  | 197/256 [00:43<00:12,  4.61it/s][W1030 13:16:25.101113748 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  77%|███████▋  | 198/256 [00:43<00:12,  4.60it/s][W1030 13:16:25.318975216 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  78%|███████▊  | 199/256 [00:43<00:12,  4.62it/s][W1030 13:16:25.529273360 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  78%|███████▊  | 200/256 [00:43<00:12,  4.65it/s][W1030 13:16:25.746930455 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  79%|███████▊  | 201/256 [00:43<00:11,  4.63it/s][W1030 13:16:26.956258607 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  79%|███████▉  | 202/256 [00:44<00:11,  4.68it/s][W1030 13:16:26.161521204 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  79%|███████▉  | 203/256 [00:44<00:11,  4.71it/s][W1030 13:16:26.372710219 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  80%|███████▉  | 204/256 [00:44<00:11,  4.72it/s][W1030 13:16:26.586844090 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  80%|████████  | 205/256 [00:44<00:10,  4.71it/s][W1030 13:16:26.802942948 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  80%|████████  | 206/256 [00:44<00:10,  4.69it/s][W1030 13:16:27.010915403 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  81%|████████  | 207/256 [00:45<00:10,  4.72it/s][W1030 13:16:27.229206249 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  81%|████████▏ | 208/256 [00:45<00:10,  4.67it/s][W1030 13:16:27.444718405 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  82%|████████▏ | 209/256 [00:45<00:10,  4.67it/s][W1030 13:16:27.662400005 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  82%|████████▏ | 210/256 [00:45<00:09,  4.64it/s][W1030 13:16:28.876471129 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  82%|████████▏ | 211/256 [00:46<00:09,  4.67it/s][W1030 13:16:28.089887010 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  83%|████████▎ | 212/256 [00:46<00:09,  4.66it/s][W1030 13:16:28.297207973 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  83%|████████▎ | 213/256 [00:46<00:09,  4.71it/s][W1030 13:16:28.504640143 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  84%|████████▎ | 214/256 [00:46<00:08,  4.73it/s][W1030 13:16:28.717031906 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  84%|████████▍ | 215/256 [00:46<00:08,  4.73it/s][W1030 13:16:29.934485427 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  84%|████████▍ | 216/256 [00:47<00:08,  4.72it/s][W1030 13:16:29.146165155 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  85%|████████▍ | 217/256 [00:47<00:08,  4.70it/s][W1030 13:16:29.353778452 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  85%|████████▌ | 218/256 [00:47<00:08,  4.72it/s][W1030 13:16:29.566375299 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  86%|████████▌ | 219/256 [00:47<00:07,  4.72it/s][W1030 13:16:29.777071158 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  86%|████████▌ | 220/256 [00:47<00:07,  4.74it/s][W1030 13:16:30.986219696 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  86%|████████▋ | 221/256 [00:48<00:07,  4.77it/s][W1030 13:16:30.196481019 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  87%|████████▋ | 222/256 [00:48<00:07,  4.74it/s][W1030 13:16:30.404995396 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  87%|████████▋ | 223/256 [00:48<00:06,  4.74it/s][W1030 13:16:30.617143457 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  88%|████████▊ | 224/256 [00:48<00:06,  4.74it/s][W1030 13:16:30.828966228 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  88%|████████▊ | 225/256 [00:48<00:06,  4.73it/s][W1030 13:16:31.049462069 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  88%|████████▊ | 226/256 [00:49<00:06,  4.69it/s][W1030 13:16:31.255609380 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  89%|████████▊ | 227/256 [00:49<00:06,  4.74it/s][W1030 13:16:31.465271085 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  89%|████████▉ | 228/256 [00:49<00:05,  4.74it/s][W1030 13:16:31.673187467 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  89%|████████▉ | 229/256 [00:49<00:05,  4.74it/s][W1030 13:16:32.893126272 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  90%|████████▉ | 230/256 [00:50<00:05,  4.70it/s][W1030 13:16:32.103982346 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  90%|█████████ | 231/256 [00:50<00:05,  4.71it/s][W1030 13:16:32.315755997 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  91%|█████████ | 232/256 [00:50<00:05,  4.72it/s][W1030 13:16:32.524642293 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  91%|█████████ | 233/256 [00:50<00:04,  4.74it/s][W1030 13:16:32.733896627 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  91%|█████████▏| 234/256 [00:50<00:04,  4.75it/s][W1030 13:16:33.947718683 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  92%|█████████▏| 235/256 [00:51<00:04,  4.71it/s][W1030 13:16:33.168593444 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  92%|█████████▏| 236/256 [00:51<00:04,  4.67it/s][W1030 13:16:33.378440694 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  93%|█████████▎| 237/256 [00:51<00:04,  4.70it/s][W1030 13:16:33.587761406 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  93%|█████████▎| 238/256 [00:51<00:03,  4.71it/s][W1030 13:16:33.806861345 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  93%|█████████▎| 239/256 [00:51<00:03,  4.67it/s][W1030 13:16:34.018410044 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  94%|█████████▍| 240/256 [00:52<00:03,  4.70it/s][W1030 13:16:34.232304020 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  94%|█████████▍| 241/256 [00:52<00:03,  4.68it/s][W1030 13:16:34.444580756 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  95%|█████████▍| 242/256 [00:52<00:02,  4.69it/s][W1030 13:16:34.653454265 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  95%|█████████▍| 243/256 [00:52<00:02,  4.73it/s][W1030 13:16:35.862914270 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  95%|█████████▌| 244/256 [00:53<00:02,  4.74it/s][W1030 13:16:35.074554554 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  96%|█████████▌| 245/256 [00:53<00:02,  4.74it/s][W1030 13:16:35.287033042 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  96%|█████████▌| 246/256 [00:53<00:02,  4.73it/s][W1030 13:16:35.500467231 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  96%|█████████▋| 247/256 [00:53<00:01,  4.70it/s][W1030 13:16:35.714809999 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  97%|█████████▋| 248/256 [00:53<00:01,  4.70it/s][W1030 13:16:36.929814054 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  97%|█████████▋| 249/256 [00:54<00:01,  4.69it/s][W1030 13:16:36.144103449 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  98%|█████████▊| 250/256 [00:54<00:01,  4.69it/s][W1030 13:16:36.355775986 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  98%|█████████▊| 251/256 [00:54<00:01,  4.69it/s][W1030 13:16:36.568679639 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  98%|█████████▊| 252/256 [00:54<00:00,  4.70it/s][W1030 13:16:36.796785319 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  99%|█████████▉| 253/256 [00:54<00:00,  4.59it/s][W1030 13:16:37.012991329 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1):  99%|█████████▉| 254/256 [00:55<00:00,  4.61it/s][W1030 13:16:37.224925491 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1): 100%|█████████▉| 255/256 [00:55<00:00,  4.64it/s][W1030 13:16:37.436657780 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Calibration Progress(Phase 1): 100%|██████████| 256/256 [00:55<00:00,  4.67it/s]Calibration Progress(Phase 1): 100%|██████████| 256/256 [00:55<00:00,  4.60it/s]
+[13:16:37] AX Quantization Alignment Pass Running ...     
+[13:16:37] AX Refine Int Parameter Pass Running ...       
+[13:16:37] AX Refine Scale Pass Running ...               
+[Warning]Dinky weight, auto set scale of /s/backbone/conv1/Conv
+[13:16:37] AX Passive Parameter Quantization Running ...  
+[13:16:37] AX Parameter Baking Pass Running ...           
+--------- Network Snapshot ---------
+Num of Op:                    [95]
+Num of Quantized Op:          [95]
+Num of Variable:              [192]
+Num of Quantized Var:         [192]
+------- Quantization Snapshot ------
+Num of Quant Config:          [296]
+BAKED:                        [39]
+OVERLAPPED:                   [149]
+ACTIVATED:                    [55]
+SOI:                          [14]
+PASSIVE_BAKED:                [39]
+Network Quantization Finished.
+Do quant optimization
+quant.axmodel export success: 
+	/data/supercombo_distill/outputs/quant_r18e3/quant/quant_axmodel.onnx
+	/data/supercombo_distill/outputs/quant_r18e3/quant/quant_axmodel.data
+[W1030 13:16:39.166512710 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W1030 13:16:39.340272541 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+===>export io data to folder: /data/supercombo_distill/outputs/quant_r18e3/quant/debug/io
+Building native ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+2026-10-30 13:16:40.916 | INFO     | yamain.command.build:compile_ptq_model:1169 - group 0 compiler transformation
+2026-10-30 13:16:40.921 | WARNING  | yamain.command.load_model:pre_process:622 - preprocess tensor [input_imgs]
+2026-10-30 13:16:40.921 | INFO     | yamain.command.load_model:pre_process:624 - tensor: input_imgs, (1, 12, 128, 256), U8
+2026-10-30 13:16:40.922 | INFO     | yamain.command.load_model:pre_process:625 - op: op:pre_dequant_1, AxDequantizeLinear, {'const_inputs': {'x_zeropoint': array(0, dtype=int32), 'x_scale': array(1., dtype=float32)}, 'output_dtype': <class 'numpy.float32'>, 'quant_method': 0}
+2026-10-30 13:16:40.922 | WARNING  | yamain.command.load_model:pre_process:622 - preprocess tensor [big_input_imgs]
+2026-10-30 13:16:40.922 | INFO     | yamain.command.load_model:pre_process:624 - tensor: big_input_imgs, (1, 12, 128, 256), U8
+2026-10-30 13:16:40.923 | INFO     | yamain.command.load_model:pre_process:625 - op: op:pre_dequant_2, AxDequantizeLinear, {'const_inputs': {'x_zeropoint': array(0, dtype=int32), 'x_scale': array(1., dtype=float32)}, 'output_dtype': <class 'numpy.float32'>, 'quant_method': 0}
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:pre_process:622 - preprocess tensor [desire]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:pre_process:622 - preprocess tensor [features_buffer]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:pre_process:622 - preprocess tensor [traffic_convention]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [out_hidden]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_meta]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_desire_pred]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_pose]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_wide_from_device]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_road_transform]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_lanes]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_lane_prob]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_road_edges]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_lead]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_lead_prob]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_plan]
+2026-10-30 13:16:40.923 | WARNING  | yamain.command.load_model:post_process:633 - postprocess tensor [hx_desire_state]
+2026-10-30 13:16:40.926 | INFO     | yamain.command.load_model:ir_compiler_transformation:828 - use random data as gt input: input_imgs, uint8, (1, 12, 128, 256)
+2026-10-30 13:16:40.926 | INFO     | yamain.command.load_model:ir_compiler_transformation:828 - use random data as gt input: big_input_imgs, uint8, (1, 12, 128, 256)
+2026-10-30 13:16:40.926 | INFO     | yamain.command.load_model:ir_compiler_transformation:828 - use quant data as gt input: desire, float32, (1, 25, 8)
+2026-10-30 13:16:40.926 | INFO     | yamain.command.load_model:ir_compiler_transformation:828 - use quant data as gt input: features_buffer, float32, (1, 24, 512)
+2026-10-30 13:16:40.926 | INFO     | yamain.command.load_model:ir_compiler_transformation:828 - use quant data as gt input: traffic_convention, float32, (1, 2)
+2026-10-30 13:16:41.049 | INFO     | yamain.command.build:compile_ptq_model:1190 - group 0 QuantAxModel macs: 4,692,157,504
+2026-10-30 13:16:41.074 | INFO     | yamain.command.build:compile_ptq_model:1325 - subgraph [0], group: 0, type: GraphType.NPU
+2026-10-30 13:16:41.075 | INFO     | yamain.compiler.npu_backend_compiler:compile:191 - compile npu subgraph [0]
+tiling op...   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81/81 0:00:01
+new_ddr_tensor = []
+build op serially...   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 596/596 0:00:06
+build op...   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 675/675 0:00:00
+add ddr swap...   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2855/2855 0:00:01
+calc input dependencies...   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4015/4015 0:00:01
+calc output dependencies...   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4015/4015 0:00:01
+assign eu heuristic   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4015/4015 0:00:00
+assign eu onepass   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4015/4015 0:00:00
+assign eu greedy   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4015/4015 0:00:00
+2026-10-30 13:16:54.720 | INFO     | yasched.test_onepass:results2model_gen:3204 - clear job deps
+2026-10-30 13:16:54.720 | INFO     | yasched.test_onepass:results2model_gen:3205 - max_cycle = 6,730,392
+build jobs   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4015/4015 0:00:01
+2026-10-30 13:16:57.101 | INFO     | yamain.compiler.npu_backend_compiler:compile:293 - assemble model [0] [subgraph_npu_0] b1
+2026-10-30 13:17:02.851 | DEBUG    | backend.ax620e.linker:link_with_dispatcher:1935 - eu_chunk time_limit: True
+2026-10-30 13:17:02.851 | DEBUG    | backend.ax620e.linker:link_with_dispatcher:1936 - eu_chunk only_bysize: False
+2026-10-30 13:17:21.840 | INFO     | backend.ax620e.linker:link_with_dispatcher:2004 - DispatcherQueueType.IO: Generate 682 EU chunks, 56 Dispatcher Chunk
+2026-10-30 13:17:21.841 | INFO     | backend.ax620e.linker:link_with_dispatcher:2004 - DispatcherQueueType.Compute: Generate 718 EU chunks, 99 Dispatcher Chunk
+2026-10-30 13:17:21.841 | INFO     | backend.ax620e.linker:link_with_dispatcher:2005 - EU mcode size: 458 KiB
+2026-10-30 13:17:21.841 | INFO     | backend.ax620e.linker:link_with_dispatcher:2006 - Dispatcher mcode size: 98 KiB
+2026-10-30 13:17:21.841 | INFO     | backend.ax620e.linker:link_with_dispatcher:2007 - Total mcode size: 556 KiB
+2026-10-30 13:17:21.856 | INFO     | yamain.compiler.npu_backend_compiler:compile:347 - dump trace file: [/data/supercombo_distill/outputs/quant_r18e3/compiler/debug/subgraph_npu_0/b1/trace.json]
+2026-10-30 13:17:26.141 | INFO     | yamain.compiler.npu_backend_compiler:compile:358 - dump op profile: [/data/supercombo_distill/outputs/quant_r18e3/compiler/debug/subgraph_npu_0/b1/op_profile.csv]
+                  Assembled Model Addr Spaces                   
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━┓
+┃ Name                       ┃ Type ┃       Size ┃      Offset ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━┩
+│ _runtime                   │ OCM  │     65,536 │      vNPU+0 │
+│ ocm_base                   │ OCM  │    720,896 │ vNPU+65,536 │
+│ _vnpu_base                 │ OCM  │    786,432 │      vNPU+0 │
+├────────────────────────────┼──────┼────────────┼─────────────┤
+│ input_imgs                 │ DDR  │    393,216 │         N/A │
+│ input_imgs_offset          │ DDR  │          4 │         N/A │
+│ big_input_imgs             │ DDR  │    393,216 │         N/A │
+│ big_input_imgs_offset      │ DDR  │          4 │         N/A │
+│ features_buffer            │ DDR  │     49,152 │         N/A │
+│ features_buffer_offset     │ DDR  │          4 │         N/A │
+│ desire                     │ DDR  │        800 │         N/A │
+│ desire_offset              │ DDR  │          4 │         N/A │
+│ traffic_convention         │ DDR  │          8 │         N/A │
+│ traffic_convention_offset  │ DDR  │          4 │         N/A │
+│ hx_meta                    │ DDR  │        256 │         N/A │
+│ hx_meta_offset             │ DDR  │          4 │         N/A │
+│ hx_desire_pred             │ DDR  │        128 │         N/A │
+│ hx_desire_pred_offset      │ DDR  │          4 │         N/A │
+│ hx_pose                    │ DDR  │        128 │         N/A │
+│ hx_pose_offset             │ DDR  │          4 │         N/A │
+│ hx_wide_from_device        │ DDR  │        128 │         N/A │
+│ hx_wide_from_device_offset │ DDR  │          4 │         N/A │
+│ hx_road_transform          │ DDR  │        128 │         N/A │
+│ hx_road_transform_offset   │ DDR  │          4 │         N/A │
+│ hx_lanes                   │ DDR  │        256 │         N/A │
+│ hx_lanes_offset            │ DDR  │          4 │         N/A │
+│ hx_lane_prob               │ DDR  │         64 │         N/A │
+│ hx_lane_prob_offset        │ DDR  │          4 │         N/A │
+│ hx_road_edges              │ DDR  │        128 │         N/A │
+│ hx_road_edges_offset       │ DDR  │          4 │         N/A │
+│ out_hidden                 │ DDR  │      2,048 │         N/A │
+│ out_hidden_offset          │ DDR  │          4 │         N/A │
+│ hx_lead                    │ DDR  │        256 │         N/A │
+│ hx_lead_offset             │ DDR  │          4 │         N/A │
+│ hx_lead_prob               │ DDR  │         64 │         N/A │
+│ hx_lead_prob_offset        │ DDR  │          4 │         N/A │
+│ hx_plan                    │ DDR  │      1,024 │         N/A │
+│ hx_plan_offset             │ DDR  │          4 │         N/A │
+│ hx_desire_state            │ DDR  │        128 │         N/A │
+│ hx_desire_state_offset     │ DDR  │          4 │         N/A │
+│ ddr_swap                   │ DDR  │  2,097,152 │         N/A │
+│ params                     │ DDR  │ 16,507,396 │         N/A │
+└────────────────────────────┴──────┴────────────┴─────────────┘
+                       Assembled Model IO Specifications                        
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Name                   ┃ Type           ┃       Size ┃ Offset                ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━┩
+│ input_imgs             │ INPUT          │    393,216 │ input_imgs+0          │
+│ input_imgs_offset      │ INPUT          │          4 │ input_imgs_offset+0   │
+│ big_input_imgs         │ INPUT          │    393,216 │ big_input_imgs+0      │
+│ big_input_imgs_offset  │ INPUT          │          4 │ big_input_imgs_offse… │
+│ features_buffer        │ INPUT          │     49,152 │ features_buffer+0     │
+│ features_buffer_offset │ INPUT          │          4 │ features_buffer_offs… │
+│ desire                 │ INPUT          │        800 │ desire+0              │
+│ desire_offset          │ INPUT          │          4 │ desire_offset+0       │
+│ traffic_convention     │ INPUT          │          8 │ traffic_convention+0  │
+│ traffic_convention_of… │ INPUT          │          4 │ traffic_convention_o… │
+│ hx_meta                │ OUTPUT         │        256 │ hx_meta+0             │
+│ hx_meta_offset         │ INPUT          │          4 │ hx_meta_offset+0      │
+│ hx_desire_pred         │ OUTPUT         │        128 │ hx_desire_pred+0      │
+│ hx_desire_pred_offset  │ INPUT          │          4 │ hx_desire_pred_offse… │
+│ hx_pose                │ OUTPUT         │        128 │ hx_pose+0             │
+│ hx_pose_offset         │ INPUT          │          4 │ hx_pose_offset+0      │
+│ hx_wide_from_device    │ OUTPUT         │        128 │ hx_wide_from_device+0 │
+│ hx_wide_from_device_o… │ INPUT          │          4 │ hx_wide_from_device_… │
+│ hx_road_transform      │ OUTPUT         │        128 │ hx_road_transform+0   │
+│ hx_road_transform_off… │ INPUT          │          4 │ hx_road_transform_of… │
+│ hx_lanes               │ OUTPUT         │        256 │ hx_lanes+0            │
+│ hx_lanes_offset        │ INPUT          │          4 │ hx_lanes_offset+0     │
+│ hx_lane_prob           │ OUTPUT         │         64 │ hx_lane_prob+0        │
+│ hx_lane_prob_offset    │ INPUT          │          4 │ hx_lane_prob_offset+0 │
+│ hx_road_edges          │ OUTPUT         │        128 │ hx_road_edges+0       │
+│ hx_road_edges_offset   │ INPUT          │          4 │ hx_road_edges_offset… │
+│ out_hidden             │ OUTPUT         │      2,048 │ out_hidden+0          │
+│ out_hidden_offset      │ INPUT          │          4 │ out_hidden_offset+0   │
+│ hx_lead                │ OUTPUT         │        256 │ hx_lead+0             │
+│ hx_lead_offset         │ INPUT          │          4 │ hx_lead_offset+0      │
+│ hx_lead_prob           │ OUTPUT         │         64 │ hx_lead_prob+0        │
+│ hx_lead_prob_offset    │ INPUT          │          4 │ hx_lead_prob_offset+0 │
+│ hx_plan                │ OUTPUT         │      1,024 │ hx_plan+0             │
+│ hx_plan_offset         │ INPUT          │          4 │ hx_plan_offset+0      │
+│ hx_desire_state        │ OUTPUT         │        128 │ hx_desire_state+0     │
+│ hx_desire_state_offset │ INPUT          │          4 │ hx_desire_state_offs… │
+│ ddr_swap               │ SWAP           │  2,097,152 │ ddr_swap+0            │
+│ params                 │ INPUT (BUFFER) │ 16,507,396 │ params+0              │
+│ ~runtime_mcode_buffer… │ INPUT (BUFFER) │        128 │ _vnpu_base+1,024      │
+│ ~runtime_mcode_buffer… │ INPUT (BUFFER) │      4,112 │ _vnpu_base+9,216      │
+└────────────────────────┴────────────────┴────────────┴───────────────────────┘
+┏━━━━┳━━━━━━┳━━━━━━━━━━━━┓
+┃ RW ┃ Type ┃ Size       ┃
+┡━━━━╇━━━━━━╇━━━━━━━━━━━━┩
+│ R  │ DDR  │ 25,376,480 │
+│ W  │ DDR  │ 4,362,880  │
+└────┴──────┴────────────┘
+2026-10-30 13:17:26.255 | INFO     | yamain.command.build:compile_ptq_model:1368 - fuse 1 subgraph(s)

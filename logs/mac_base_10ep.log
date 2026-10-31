@@ -1,0 +1,3 @@
+dedup: /Users/chan/Documents/supercombo_distill/data/dedup/dedup.json
+58 train routes, 371837 samples, device mps
+weights from ckpt/mac_base_5ep/last.pt (epoch 4)

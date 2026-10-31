@@ -1,0 +1,15 @@
+2026-10-04--12-32-26-070__000: 517 samples
+2026-10-10--11-16-58-871__000: 1034 samples
+2026-10-18--12-14-18-885__000: 1551 samples
+2026-10-29--03-10-50-289__000: 2068 samples
+2068 samples, 6200 hidden states
+rank  32: hidden residual 0.0054, vis_fc response residual 0.0473
+rank  64: hidden residual 0.0021, vis_fc response residual 0.0300
+rank  96: hidden residual 0.0004, vis_fc response residual 0.0212
+rank 128: hidden residual nan, vis_fc response residual 0.0154
+rank 192: hidden residual nan, vis_fc response residual 0.0079
+rank 256: hidden residual nan, vis_fc response residual 0.0035
+rank 384: hidden residual nan, vis_fc response residual 0.0013
+hist_rank 128: hidden-state residual 0.0012, temporal.0 response error 0.0000
+vis_rank 256: vis_fc.0 response error 0.0035
+saved ckpt/mac_l4/init_lr.pt: temporal.0 6.64M -> 1.99M weights, vis_fc 4.19M -> 1.31M

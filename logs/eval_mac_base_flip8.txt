@@ -1,0 +1,7 @@
+2026-10-22--23-22-40-918: not labelled yet
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+board NPU (shipped)                   0.0691             nan          9.3167         18.4886         26.9096          5.9375          0.2457
+small fp32                            0.0515          0.2062          9.6207         16.3484         23.0344          5.4256          0.0898
+big teacher                           0.0000          0.0000          0.0000         17.3593         23.9298          0.0000          0.0000
+student mac_base_aug10                0.0547          0.2600         13.6534         11.4009         12.7204          6.6687          0.1306
+student mac_base_flip8                0.0522          0.2507         12.6962         10.2876         11.8135          6.6897          0.1332

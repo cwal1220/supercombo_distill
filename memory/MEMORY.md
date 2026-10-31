@@ -1,0 +1,2 @@
+- [User working style](user-working-style.md) — Korean, concise tables; passwords never in files; ask before training
+- [Distillation status](project-distill-status.md) — lrg_calL beat shipped on eval but FAILED road test 11-01 (laneless left drift); work moved to Linux session

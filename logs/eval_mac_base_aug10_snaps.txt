@@ -1,0 +1,20 @@
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep1            0.2381          0.3566         24.0970         16.1416         17.5832          9.1898          0.1283
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep2            0.1342          0.3301         25.7143         14.3578         15.8350          7.4356          0.1369
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep3            0.0760          0.3237         16.1159         13.2298         14.6102          7.1072          0.1318
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep4            0.1482          0.3120         15.1393         12.5528         14.2894          7.1410          0.1268
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep5            0.0628          0.2994         15.0805         12.4076         13.9084          7.0476          0.1295
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep6            0.0591          0.2757         14.1718         11.7562         13.1571          6.8961          0.1268
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep7            0.0598          0.2652         14.0947         11.5619         12.9950          6.9384          0.1253
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep8            0.0604          0.2730         13.5459         11.5119         12.9302          6.5899          0.1303
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep9            0.0569          0.2655         13.6125         11.4694         12.8305          6.5872          0.1307
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_aug10/ep10           0.0547          0.2600         13.6534         11.4009         12.7204          6.6687          0.1306

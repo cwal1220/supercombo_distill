@@ -1,0 +1,14 @@
+lra_ext_npu (5 routes, 34269 frames)
+  AUC            student 0.9753   shipped 0.9772
+  at 0.5         student false 11.99% missed 6.14%   shipped false 5.06% missed 10.59%
+  false, own x 0-40 m     student 0.87%   shipped 0.76%
+  false, own x 40-60 m    student 0.89%   shipped 1.26%
+  false, own x 60- m      student 10.23%   shipped 3.04%
+  route-out cal. student false 5.25% missed 10.61%
+lra_ema_s8 (5 routes, 34269 frames)
+  AUC            student 0.9757   shipped 0.9772
+  at 0.5         student false 8.80% missed 7.46%   shipped false 5.06% missed 10.59%
+  false, own x 0-40 m     student 0.83%   shipped 0.76%
+  false, own x 40-60 m    student 0.74%   shipped 1.26%
+  false, own x 60- m      student 7.23%   shipped 3.04%
+  route-out cal. student false 5.12% missed 10.46%

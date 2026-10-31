@@ -1,0 +1,6 @@
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+board NPU (shipped)                   0.0445             nan          9.2438         16.2525         21.5227          2.8212          0.0819
+small fp32                            0.0451          0.2264          9.6291         16.6633         22.6905          2.5284          0.0742
+big teacher                           0.0000          0.0000          0.0000         16.9578         20.3630          0.0000          0.0000
+student mac_base_5ep                  0.0382          0.2812          8.2873          9.9502         10.2700          1.6326          0.0830
+student mac_w48d_6ep                  0.0961          0.3168         15.2257          8.8706          9.1260          1.3957          0.0826

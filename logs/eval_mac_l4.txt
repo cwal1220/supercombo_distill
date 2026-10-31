@@ -1,0 +1,19 @@
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:113: RuntimeWarning: Mean of empty slice
+  r["lat_acc"] = np.nanmean(np.abs(la - lr)[sel])
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:115: RuntimeWarning: Mean of empty slice
+  r["long_acc"] = np.nanmean(np.abs(a - ar)[sel]) if a is not None else np.nan
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:117: RuntimeWarning: Mean of empty slice
+  r["plan_y2s_cm"] = np.nanmean(np.abs(y2(q) - y2(ref))[sel]) * 100
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:127: RuntimeWarning: Mean of empty slice
+  r["lead_x_m"] = np.nanmean(np.abs(q["lead_x"] - ref["lead_x"])[lead])
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:128: RuntimeWarning: Mean of empty slice
+  r["gas2"] = np.nanmean(np.abs(q["gas2"] - ref["gas2"])[sel])
+/Users/chan/Documents/supercombo_distill/scripts/eval_student.py:132: RuntimeWarning: Mean of empty slice
+  r["vx0_cms"] = np.nanmean(np.abs(q["plan_v"][:, 0] - ref["plan_v"][:, 0])[sel]) * 100 if "plan_v" in q else np.nan
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2       lead_x_lf  false_lead_pct         vx0_cms
+board NPU (shipped)                   0.0691             nan          9.9424         18.5782         25.8498          5.8264          0.2362          4.2834          5.0618             nan
+small fp32                            0.0515          0.2062          9.6207         16.3484         23.0344          5.4256          0.0898          3.5583          6.8048         64.7308
+big teacher                           0.0000          0.0000          0.0000         17.9575         23.8061          0.0000          0.0000          0.0000          0.0000          0.0000
+student mac_r18q/ema (S8)             0.0454          0.2604          9.5590          9.8580         12.3318          4.8290          0.1329          3.3586          8.6969         78.2784
+student mac_l4 (S8)                   0.0539          0.2742          9.0191          9.4782         11.7372          5.1138          0.1297          3.6638          7.8135         75.1234
+student mac_l4/ema (S8)               0.0535          0.2726          9.0447          9.4707         11.7472          5.1320          0.1298          3.6724          7.6703         74.7346

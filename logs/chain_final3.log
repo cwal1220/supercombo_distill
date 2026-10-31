@@ -1,0 +1,6 @@
+Sat Oct 31 14:29:48 KST 2026 LRC far-lead calibration x0 40 b0 +0.75 b1 0.50
+Sat Oct 31 15:27:05 KST 2026 built lrc_cal_ext from ckpt/mac_lrc/ema_cal.pt
+Sat Oct 31 17:06:25 KST 2026 p2sim lrc_cal_ext done
+Sat Oct 31 17:06:35 KST 2026 LRD calibrated: ckpt/mac_lrd/ema_cal.pt
+Sat Oct 31 17:16:22 KST 2026 built lrd_cal_ext from ckpt/mac_lrd/ema_cal.pt
+Sat Oct 31 17:57:41 KST 2026 p2sim lrd_cal_ext done

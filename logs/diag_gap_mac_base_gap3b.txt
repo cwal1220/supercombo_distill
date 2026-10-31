@@ -1,0 +1,10 @@
+2026-10-05--16-28-44-410__000 1199 frames; teacher vx 14.22 m/s |yaw| 10.9 mrad/s
+  gap 0.0x: pose vx mean 0.07 (fit 0.01 x teacher), yaw fit 0.00 x teacher, |vx err| vs teacher 14.15
+  gap 0.5x: pose vx mean 9.36 (fit 0.68 x teacher), yaw fit 0.55 x teacher, |vx err| vs teacher 5.09
+  gap 1.0x: pose vx mean 14.81 (fit 1.04 x teacher), yaw fit 0.99 x teacher, |vx err| vs teacher 2.26
+  gap 2.0x: pose vx mean 18.81 (fit 1.28 x teacher), yaw fit 1.44 x teacher, |vx err| vs teacher 4.91
+2026-10-10--17-34-10-953__000 1558 frames; teacher vx 11.08 m/s |yaw| 18.7 mrad/s
+  gap 0.0x: pose vx mean 0.03 (fit 0.00 x teacher), yaw fit 0.01 x teacher, |vx err| vs teacher 11.05
+  gap 0.5x: pose vx mean 7.01 (fit 0.63 x teacher), yaw fit 0.75 x teacher, |vx err| vs teacher 4.10
+  gap 1.0x: pose vx mean 11.03 (fit 0.98 x teacher), yaw fit 1.02 x teacher, |vx err| vs teacher 0.83
+  gap 2.0x: pose vx mean 14.95 (fit 1.30 x teacher), yaw fit 1.15 x teacher, |vx err| vs teacher 4.06

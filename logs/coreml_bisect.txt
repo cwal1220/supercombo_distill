@@ -1,0 +1,29 @@
+sessions 51 s
+/private/tmp/claude-501/-Users-chan-Documents-supercombo-distill/fdabf76d-b147-4353-b3fb-ed51f739931a/scratchpad/coreml_bisect.py:43: RuntimeWarning: invalid value encountered in subtract
+  e = np.linalg.norm(x - y) / den
+38 diverging tensors; first 25 in graph order:
+  Gelu         model/node_gelu_37                                           model/gelu_37                            0.069
+  Gemm         model/node_linear_75                                         model/linear_75                          0.058
+  Gather       model/node_select_2                                          model/select_2                           4.488
+  LayerNormalization model/node_layer_norm_62                                     model/layer_norm_62                      1.003
+  Gemm         model/node_linear_112                                        model/linear_112                         0.916
+  Gelu         model/node_gelu_45                                           model/gelu_45                            1.791
+  Gemm         model/node_linear_113                                        model/linear_113                         2.382
+  Add          model/node_add_54                                            model/add_54                             4.167
+  Gemm         model/node_linear_114                                        model/linear_114                         0.413
+  LayerNormalization model/node_layer_norm_63                                     model/layer_norm_63                      0.975
+  Gemm         model/node_linear_115                                        model/linear_115                         0.735
+  Gelu         model/node_gelu_46                                           model/gelu_46                            1.025
+  Gemm         model/node_linear_116                                        model/linear_116                         1.162
+  Add          model/node_add_55                                            model/add_55                             4.102
+  Gemm         model/node_linear_117                                        model/linear_117                         0.292
+  LayerNormalization model/node_layer_norm_64                                     model/layer_norm_64                      1.054
+  Gemm         model/node_linear_118                                        model/linear_118                         0.775
+  Gelu         model/node_gelu_47                                           model/gelu_47                            1.232
+  Gemm         model/node_linear_119                                        model/linear_119                         1.319
+  Add          model/node_add_56                                            model/add_56                             5.432
+  Gemm         model/node_linear_120                                        model/linear_120                         0.407
+  LayerNormalization model/node_layer_norm_66                                     model/layer_norm_66                      1.102
+  Gemm         model/node_linear_124                                        model/linear_124                         0.662
+  Gelu         model/node_gelu_49                                           model/gelu_49                            1.067
+  Gemm         model/node_linear_125                                        model/linear_125                         0.924

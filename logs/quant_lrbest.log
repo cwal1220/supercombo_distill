@@ -1,0 +1,55 @@
++--------------------------+----------------------------+
+|        Model Name        |         OnnxModel          |
++--------------------------+----------------------------+
+|        Model Info        | Op Set: 17 / IR Version: 8 |
++--------------------------+----------------------------+
+|      IN: input_imgs      | float32: (1, 12, 128, 256) |
+|    IN: big_input_imgs    | float32: (1, 12, 128, 256) |
+|        IN: desire        |    float32: (1, 25, 8)     |
+|   IN: features_buffer    |   float32: (1, 24, 512)    |
+|  IN: traffic_convention  |      float32: (1, 2)       |
+|     OUT: out_hidden      |     float32: (1, 512)      |
+|       OUT: hx_meta       |      float32: (1, 64)      |
+|   OUT: hx_desire_pred    |      float32: (1, 32)      |
+|       OUT: hx_pose       |      float32: (1, 32)      |
+| OUT: hx_wide_from_device |      float32: (1, 32)      |
+|  OUT: hx_road_transform  |      float32: (1, 32)      |
+|      OUT: hx_lanes       |      float32: (1, 64)      |
+|    OUT: hx_lane_prob     |      float32: (1, 16)      |
+|    OUT: hx_road_edges    |      float32: (1, 32)      |
+|       OUT: hx_lead       |      float32: (1, 64)      |
+|    OUT: hx_lead_prob     |      float32: (1, 16)      |
+|       OUT: hx_plan       |     float32: (1, 256)      |
+|   OUT: hx_desire_state   |      float32: (1, 32)      |
++--------------------------+----------------------------+
+|           Add            |             6              |
+|           Cast           |             1              |
+|           Clip           |             1              |
+|          Concat          |             4              |
+|         Constant         |             15             |
+|           Conv           |             17             |
+|           Div            |             1              |
+|          Expand          |             1              |
+|         Flatten          |             4              |
+|           Gemm           |             22             |
+|          MatMul          |             2              |
+|         MaxPool          |             1              |
+|           Mul            |             1              |
+|         ReduceL2         |             1              |
+|           Relu           |             36             |
+|          Shape           |             1              |
+|          Slice           |             3              |
+|         Squeeze          |             1              |
+|        Unsqueeze         |             1              |
++--------------------------+----------------------------+
+|        Model Size        |          33.88 MB          |
++--------------------------+----------------------------+
+2026-10-31 07:34:55.282 | WARNING  | yamain.command.build:fill_default:243 - force onnxsim due to found op_type in {'ConstantOfShape', 'Constant'}
+2026-10-31 07:34:55.282 | WARNING  | yamain.command.build:fill_default:314 - apply default output processor configuration to ['out_hidden', 'hx_meta', 'hx_desire_pred', 'hx_pose', 'hx_wide_from_device', 'hx_road_transform', 'hx_lanes', 'hx_lane_prob', 'hx_road_edges', 'hx_lead', 'hx_lead_prob', 'hx_plan', 'hx_desire_state']
+2026-10-31 07:34:55.283 | WARNING  | yamain.command.build:fill_default:396 - ignore input_imgs csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-31 07:34:55.283 | WARNING  | yamain.command.build:fill_default:396 - ignore big_input_imgs csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-31 07:34:55.283 | WARNING  | yamain.command.build:fill_default:396 - ignore desire csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-31 07:34:55.283 | WARNING  | yamain.command.build:fill_default:396 - ignore features_buffer csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-31 07:34:55.283 | WARNING  | yamain.command.build:fill_default:396 - ignore traffic_convention csc config because of src_format is AutoColorSpace or src_format and tensor_format are the same
+2026-10-31 07:34:55.287 | INFO     | yamain.common.util:extract_archive:149 - extract [/data/supercombo_distill/outputs/quant_lrbest/calib/input_imgs.tar] to [/data/supercombo_distill/outputs/quant_lrbest/quant/dataset/input_imgs]...
+2026-10-31 07:35:01.085 | INFO     | yamain.common.util:extract_archive:149 - extract [/data/supercombo_distill/outputs/quant_lrbest/calib/big_input_imgs.tar] to [/data/supercombo_distill/outputs/quant_lrbest/quant/dataset/big_input_imgs]...

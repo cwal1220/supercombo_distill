@@ -1,0 +1,25 @@
+   Run AxModel:
+         model: /root/distill/lrc_calE_ext.axmodel
+          type: Half
+          vnpu: Disable
+      affinity: 0b01
+        warmup: 20
+        repeat: 500
+         batch: { auto: 0 }
+   pulsar2 ver: 6.0 48520c11
+    engine ver: 2.10.1s
+      tool ver: 2.5.0a
+      cmm size: 11519060 Bytes
+  ---------------------------------------------------------------------------
+  min =  11.211 ms   max =  11.265 ms   avg =  11.214 ms  median =  11.213 ms
+   5% =  11.212 ms   90% =  11.215 ms   95% =  11.217 ms     99% =  11.239 ms
+  ---------------------------------------------------------------------------
+
+[INFO] Available providers:  ['AxEngineExecutionProvider']
+[INFO] Using provider: AxEngineExecutionProvider
+[INFO] Chip type: ChipType.MC20E
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Engine version: 2.10.1s
+[INFO] Model type: 0 (half core)
+[INFO] Compiler version: 6.0 48520c11
+1497 frames, run() 15.46 ms median, 15.51 mean

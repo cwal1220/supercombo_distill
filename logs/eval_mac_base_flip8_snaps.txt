@@ -1,0 +1,16 @@
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_flip8/ep1            0.0856          0.2658         13.0489         11.8051         13.2262          6.8604          0.1334
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_flip8/ep2            0.1061          0.2879         13.6731         11.2231         12.6166          6.8125          0.1313
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_flip8/ep3            0.0641          0.2521         12.6543         10.9659         13.0897          6.5417          0.1255
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_flip8/ep4            0.0545          0.3049         13.2604         10.7869         12.2840          6.5860          0.1294
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_flip8/ep5            0.0695          0.2654         12.4922         10.6591         12.1578          6.7258          0.1312
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_flip8/ep6            0.0579          0.2572         12.8789         10.4544         11.8811          6.7545          0.1313
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_flip8/ep7            0.0543          0.2564         12.5471         10.2787         11.7845          6.6380          0.1327
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+student mac_base_flip8/ep8            0.0522          0.2507         12.6962         10.2876         11.8135          6.6897          0.1332

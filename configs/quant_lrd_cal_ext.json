@@ -1,0 +1,82 @@
+{
+ "model_type": "ONNX",
+ "npu_mode": "NPU1",
+ "target_hardware": "AX620E",
+ "input": "/data/supercombo_distill/models/quant/lrd_cal_ext.onnx",
+ "output_dir": "/data/supercombo_distill/outputs/quant_lrd_cal_ext",
+ "output_name": "m.axmodel",
+ "quant": {
+  "input_configs": [
+   {
+    "tensor_name": "input_imgs",
+    "calibration_dataset": "/data/supercombo_distill/outputs/quant_lrd_cal_ext/calib/input_imgs.tar",
+    "calibration_size": -1,
+    "calibration_format": "Numpy"
+   },
+   {
+    "tensor_name": "big_input_imgs",
+    "calibration_dataset": "/data/supercombo_distill/outputs/quant_lrd_cal_ext/calib/big_input_imgs.tar",
+    "calibration_size": -1,
+    "calibration_format": "Numpy"
+   },
+   {
+    "tensor_name": "desire",
+    "calibration_dataset": "/data/supercombo_distill/outputs/quant_lrd_cal_ext/calib/desire.tar",
+    "calibration_size": -1,
+    "calibration_format": "Numpy"
+   },
+   {
+    "tensor_name": "features_buffer",
+    "calibration_dataset": "/data/supercombo_distill/outputs/quant_lrd_cal_ext/calib/features_buffer.tar",
+    "calibration_size": -1,
+    "calibration_format": "Numpy"
+   },
+   {
+    "tensor_name": "traffic_convention",
+    "calibration_dataset": "/data/supercombo_distill/outputs/quant_lrd_cal_ext/calib/traffic_convention.tar",
+    "calibration_size": -1,
+    "calibration_format": "Numpy"
+   }
+  ],
+  "calibration_method": "MinMax",
+  "precision_analysis": false,
+  "precision_analysis_method": "EndToEnd",
+  "layer_configs": [
+   {
+    "start_tensor_names": [
+     "DEFAULT"
+    ],
+    "end_tensor_names": [
+     "DEFAULT"
+    ],
+    "data_type": "U16"
+   }
+  ]
+ },
+ "input_processors": [
+  {
+   "tensor_name": "input_imgs",
+   "src_dtype": "U8"
+  },
+  {
+   "tensor_name": "big_input_imgs",
+   "src_dtype": "U8"
+  },
+  {
+   "tensor_name": "desire",
+   "src_dtype": "FP32"
+  },
+  {
+   "tensor_name": "features_buffer",
+   "src_dtype": "FP32"
+  },
+  {
+   "tensor_name": "traffic_convention",
+   "src_dtype": "FP32"
+  }
+ ],
+ "compiler": {
+  "check": 0,
+  "npu_perf": true
+ }
+}

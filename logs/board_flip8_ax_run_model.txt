@@ -1,0 +1,25 @@
+   Run AxModel:
+         model: /root/distill/flip8.axmodel
+          type: Half
+          vnpu: Disable
+      affinity: 0b01
+        warmup: 20
+        repeat: 500
+         batch: { auto: 0 }
+   pulsar2 ver: 6.0 48520c11
+    engine ver: 2.10.1s
+      tool ver: 2.5.0a
+      cmm size: 14580180 Bytes
+  ---------------------------------------------------------------------------
+  min =   5.317 ms   max =   5.371 ms   avg =   5.319 ms  median =   5.318 ms
+   5% =   5.318 ms   90% =   5.320 ms   95% =   5.321 ms     99% =   5.327 ms
+  ---------------------------------------------------------------------------
+
+[INFO] Available providers:  ['AxEngineExecutionProvider']
+[INFO] Using provider: AxEngineExecutionProvider
+[INFO] Chip type: ChipType.MC20E
+[INFO] VNPU type: VNPUType.DISABLED
+[INFO] Engine version: 2.10.1s
+[INFO] Model type: 0 (half core)
+[INFO] Compiler version: 6.0 48520c11
+1497 frames, run() 9.69 ms median, 9.75 mean

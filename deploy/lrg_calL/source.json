@@ -1,0 +1,5 @@
+{
+ "ckpt": "ckpt/mac_lrg/ema_calL.pt",
+ "build": "outputs/quant_lrg_calL_ext",
+ "modeld": "v0.0.9-1-gbeccd3d+student-cpu-heads"
+}

@@ -1,0 +1,18 @@
+2026-10-29 04:39:58 watching ckpt/mac_base_flip8/last.pt (mtime 0, 0 copies already)
+2026-10-29 05:32:39 ep1.pt <- last.pt (mtime 1793219535,  49M)
+2026-10-29 05:38:12 ep1.pt evaluated
+2026-10-29 06:25:41 ep2.pt <- last.pt (mtime 1793222725,  49M)
+2026-10-29 06:31:13 ep2.pt evaluated
+2026-10-29 07:19:03 ep3.pt <- last.pt (mtime 1793225912,  49M)
+2026-10-29 07:24:36 ep3.pt evaluated
+2026-10-29 08:12:04 ep4.pt <- last.pt (mtime 1793229109,  49M)
+2026-10-29 08:17:36 ep4.pt evaluated
+2026-10-29 09:05:27 ep5.pt <- last.pt (mtime 1793232299,  49M)
+2026-10-29 09:10:58 ep5.pt evaluated
+2026-10-29 09:59:08 ep6.pt <- last.pt (mtime 1793235527,  49M)
+2026-10-29 10:04:49 ep6.pt evaluated
+2026-10-29 10:53:10 ep7.pt <- last.pt (mtime 1793238766,  49M)
+2026-10-29 10:58:41 ep7.pt evaluated
+2026-10-29 11:46:52 ep8.pt <- last.pt (mtime 1793241981,  49M)
+2026-10-29 11:52:22 ep8.pt evaluated
+2026-10-29 11:52:22 done, 8 copies

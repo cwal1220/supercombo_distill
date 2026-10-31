@@ -1,0 +1,5 @@
+Sat Oct 31 19:27:27 KST 2026 built lrf_calL_ext
+Sat Oct 31 19:27:28 KST 2026 p2sim lrf_calL_ext done
+Sat Oct 31 19:52:16 KST 2026 restarted (19:27 build failed: np.float64 in lead_cal, weights_only load)
+Sat Oct 31 20:03:14 KST 2026 built lrf_calL_ext
+Sat Oct 31 20:52:13 KST 2026 p2sim lrf_calL_ext done

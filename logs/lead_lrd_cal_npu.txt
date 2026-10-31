@@ -1,0 +1,7 @@
+lrd_cal_npu (5 routes, 34269 frames)
+  AUC            student 0.9762   shipped 0.9772
+  at 0.5         student false 5.79% missed 9.11%   shipped false 5.06% missed 10.59%
+  false, own x 0-40 m     student 1.37%   shipped 0.76%
+  false, own x 40-60 m    student 0.81%   shipped 1.26%
+  false, own x 60- m      student 3.61%   shipped 3.04%
+  route-out cal. student false 4.77% missed 10.07%

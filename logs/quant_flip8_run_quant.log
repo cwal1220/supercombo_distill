@@ -1,0 +1,13 @@
+Building native ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+2026-10-29 15:28:00.728 | INFO     | yamain.command.run:run:92 - >>> [0] start
+Traceback (most recent call last):
+  File "<frozen __main__>", line 4, in <module>
+  File "<frozen yamain.main>", line 281, in <module>
+  File "<frozen yamain.main>", line 277, in pulsar2
+  File "<frozen yamain.main>", line 158, in wrapper
+  File "<frozen yamain.command.run>", line 132, in run
+  File "<frozen yamain.command.run>", line 31, in load
+ValueError: cannot reshape array of size 98304 into shape (1,12,128,256)
+real 11.69
+user 0.00
+sys 0.00

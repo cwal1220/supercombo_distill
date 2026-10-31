@@ -1,0 +1,8 @@
+2026-10-30 02:34:15 watching ckpt/mac_base_gap3b/last.pt (mtime 0, 0 copies already)
+2026-10-30 03:28:21 ep1.pt <- last.pt (mtime 1793298470,  49M)
+2026-10-30 03:35:39 ep1.pt evaluated
+2026-10-30 04:19:04 ep2.pt <- last.pt (mtime 1793301514,  49M)
+2026-10-30 04:25:46 ep2.pt evaluated
+2026-10-30 05:06:45 ep3.pt <- last.pt (mtime 1793304375,  49M)
+2026-10-30 05:13:29 ep3.pt evaluated
+2026-10-30 05:13:29 done, 3 copies

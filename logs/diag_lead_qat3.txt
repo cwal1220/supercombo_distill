@@ -1,0 +1,82 @@
+
+#### EVAL routes, student qat3_s8  (14651 lead frames of 30342 moving)
+slice                                   n%    shipped      small    student
+all                                  100.0       4.15       3.56       4.91
+unit 2026-09-27--02-44-40__000        13.8       7.28       6.88       7.98
+unit 2026-09-27--02-44-40__015         3.0       5.97       5.23       4.98
+unit 2026-10-05--00-07-29__000         6.2      10.11       9.82      10.77
+unit 2026-10-05--16-28-44__000        35.1       1.86       1.33       2.42
+unit 2026-10-05--16-28-44__015        16.1       3.26       2.70       5.08
+unit 2026-10-25--22-42-26__000        20.7       4.38       3.48       5.03
+unit 2026-10-25--22-42-26__015         5.3       5.03       4.37       5.54
+teacher x 0-20 m                      19.1       1.16       1.14       2.07
+teacher x 20-40 m                     42.1       2.24       1.74       3.05
+teacher x 40-60 m                     18.8       5.70       4.35       5.64
+teacher x 60-80 m                     10.3      10.21       8.81      11.48
+teacher x 80-999 m                     9.6       8.93       9.17      10.18
+teacher v_rel -99--5 m/s               6.5       7.99       6.72       6.89
+teacher v_rel -5--1 m/s               28.7       5.40       4.89       6.36
+teacher v_rel -1-1 m/s                48.7       3.06       2.54       4.01
+teacher v_rel 1-99 m/s                16.0       3.64       2.97       4.20
+teacher prob 0.5-0.8                  10.2       9.71       9.20      11.70
+teacher prob 0.8-0.95                 10.2       8.13       8.02       9.21
+teacher prob 0.95-1.01                79.6       2.93       2.26       3.48
+student prob < 0.5 (missed)            9.7       8.54       8.82      12.87
+student prob >= 0.5                   90.3       3.68       2.99       4.05
+lead age 0-10 frames                   6.4       9.53       8.98      12.09
+lead age 10-50 frames                 11.0       7.78       7.14       8.20
+lead age 50-end frames                82.6       3.25       2.66       3.91
+v 5-15 m/s                            67.3       3.58       3.14       4.30
+v 15-25 m/s                           31.6       5.22       4.33       6.04
+v 25-99 m/s                            1.2       7.76       6.94       8.87
+-- error shape:
+signed mean (m)                                 -1.67      -0.06       0.90
+median |err| (m)                                 2.15       1.53       2.30
+p90 |err| (m)                                   10.60       9.69      13.13
+share of error in worst 10% (%)                 40.86      46.17      43.59
+mean |err| / teacher x (%)                       9.34       7.91      12.06
+mean |err| / teacher sigma                       1.69       1.26       2.01
+slow error (2 s avg) |.| (m)                     3.40       2.66       4.10
+-- lead probability vs the teacher's (moving frames):
+miss rate (teacher on, model off) %             10.26       8.44       9.70
+false lead (teacher off, model on) %             4.93       7.27      14.32
+mean |prob - teacher prob|                       0.08       0.09       0.13
+
+#### TRAIN routes (3), student qat3_s8  (15615 lead frames of 22197 moving)
+slice                                   n%    shipped      small    student
+all                                  100.0       2.31       2.11       1.13
+unit 2026-10-04--12-32-26__000        33.3       1.84       1.54       1.04
+unit 2026-10-10--11-16-58__000        21.5       4.39       3.79       1.63
+unit 2026-10-10--17-34-10__000        45.2       1.67       1.74       0.97
+teacher x 0-20 m                      24.4       1.01       1.13       0.67
+teacher x 20-40 m                     53.6       1.41       1.34       0.82
+teacher x 40-60 m                     12.9       3.96       3.11       1.66
+teacher x 60-80 m                      3.0       5.92       6.30       3.19
+teacher x 80-999 m                     6.1      10.23       8.73       3.64
+teacher v_rel -99--5 m/s               1.0       6.83       6.02       3.21
+teacher v_rel -5--1 m/s               19.5       2.92       2.42       1.30
+teacher v_rel -1-1 m/s                60.4       1.84       1.72       0.95
+teacher v_rel 1-99 m/s                19.1       2.96       2.83       1.45
+teacher prob 0.5-0.8                   3.1      11.82      10.39       4.11
+teacher prob 0.8-0.95                  3.7       9.18       8.40       3.76
+teacher prob 0.95-1.01                93.2       1.72       1.59       0.93
+student prob < 0.5 (missed)            0.6      12.99      12.12       3.90
+student prob >= 0.5                   99.4       2.25       2.06       1.12
+lead age 0-10 frames                   2.0       8.96       7.86       3.74
+lead age 10-50 frames                  5.0       5.50       4.96       2.20
+lead age 50-end frames                93.0       2.00       1.84       1.02
+v 5-15 m/s                            53.4       1.81       1.81       0.94
+v 15-25 m/s                           46.6       2.88       2.44       1.35
+v 25-99 m/s                            0.0      21.11      27.91       8.44
+-- error shape:
+signed mean (m)                                 -1.30      -0.14      -0.09
+median |err| (m)                                 1.22       1.14       0.63
+p90 |err| (m)                                    5.01       4.40       2.44
+share of error in worst 10% (%)                 46.21      46.85      45.05
+mean |err| / teacher x (%)                       6.40       6.16       3.55
+mean |err| / teacher sigma                       1.50       1.41       0.78
+slow error (2 s avg) |.| (m)                     1.97       1.72       0.70
+-- lead probability vs the teacher's (moving frames):
+miss rate (teacher on, model off) %              2.29       2.15       0.57
+false lead (teacher off, model on) %             2.28       2.31       2.58
+mean |prob - teacher prob|                       0.03       0.03       0.01

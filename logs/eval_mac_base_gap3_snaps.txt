@@ -1,0 +1,2 @@
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2       lead_x_lf  false_lead_pct         vx0_cms
+student mac_base_gap3/ep1 (S8)          0.0666          1.1162         12.7188         10.4934         12.4433          6.6165          0.1369          4.9657         19.9732        198.0442

@@ -1,0 +1,6 @@
+2026-10-31 15:04:51 watching ckpt/mac_lrf/last.pt (mtime 0, 0 copies already)
+2026-10-31 16:15:38 ep1.pt <- last.pt (mtime 1793430904,  35M)
+2026-10-31 16:49:58 ep2.pt <- last.pt (mtime 1793432969,  35M)
+2026-10-31 16:56:34 ep1.pt evaluated
+2026-10-31 17:30:31 ep2.pt evaluated
+2026-10-31 17:30:31 done, 2 copies

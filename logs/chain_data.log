@@ -1,0 +1,4 @@
+Sat Oct 31 12:58:09 KST 2026 labelled the new drives (exit 0): data/ep_label/2026-10-30--19-05-02-089__000 data/ep_label/2026-10-30--19-05-02-089__015 data/ep_label/2026-10-30--19-05-02-089__030 data/ep_label/2026-10-30--19-05-02-089__045 data/ep_label/2026-10-30--19-05-02-089__060 data/ep_label/2026-10-31--05-17-39-046__000 data/ep_label/2026-10-31--05-17-39-046__015 data/ep_label/2026-10-31--05-17-39-046__030 
+Sat Oct 31 13:00:09 KST 2026 LRD from ckpt/mac_lrc/ema.pt (plan 9.106)
+Sat Oct 31 15:03:47 KST 2026 LRD best ckpt/mac_lrd/ema.pt
+Sat Oct 31 16:50:51 KST 2026 p2sim lrd_ext done

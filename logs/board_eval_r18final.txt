@@ -1,0 +1,13 @@
+board: edgepilot.service stopped for the run
+board: edgepilot.service active
+  min =  12.486 ms   max =  12.583 ms   avg =  12.490 ms  median =  12.488 ms
+1497 frames, run() 16.83 ms median, 16.89 mean
+2026-10-25--22-42-26-175__015 (1497 frames)
+  out_hidden: board vs Pulsar2 rel err 0.0001
+  hx_plan: board vs Pulsar2 rel err 0.0001
+  hx_desire_state: board vs Pulsar2 rel err 0.0001
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+fp32                                  0.0580          0.3188         17.5246         14.2821         18.6996          3.8908          0.1701
+S8 sim (eval_student --s8)            0.0570          0.3173         17.6831         14.2954         19.0040          3.7373          0.1712
+Pulsar2 (Reference)                   0.0600          0.3200         18.3981         14.0360         18.6672          3.7842          0.1716
+board NPU                             0.0600          0.3200         18.3986         14.0360         18.6675          3.6966          0.1716

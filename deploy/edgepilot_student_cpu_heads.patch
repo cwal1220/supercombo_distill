@@ -1,0 +1,567 @@
+diff --git a/docs/runtime-options.md b/docs/runtime-options.md
+index 8340c42..fbfb502 100644
+--- a/docs/runtime-options.md
++++ b/docs/runtime-options.md
+@@ -39,7 +39,7 @@ processes it starts, so a variable set for the manager reaches every process.
+ 
+ | Variable | Default | Effect |
+ | --- | --- | --- |
+-| `EDGEPILOT_MODEL=/path/to/supercombo.axmodel` | `models/supercombo.axmodel` in the install directory | Overrides the model selected by `manager.py`. A command-line argument wins over it. |
++| `EDGEPILOT_MODEL=/path/to/supercombo.axmodel` | `models/supercombo.axmodel` in the install directory | Overrides the model selected by `manager.py`. A command-line argument wins over it. A [CPU-heads core](../models/README.md#cpu-heads-core) also needs its `.heads` file next to it. |
+ | `EDGEPILOT_STOP_LAUNCHER=0` | on | Leaves the stock `launcher.service` and `/maixapp/apps/` running. The default stops them, since they hold the camera and NPU. |
+ | `EDGEPILOT_LOG_DIR=dir` | unset: output goes to the terminal | Writes each process's output to `<name>.log` in that directory; a log above 1 MiB is copied to `<name>.log.1` and emptied. `edgepilot.service` sets `/run/edgepilot`, on tmpfs, so logs never reach the SD card. |
+ | `EDGEPILOT_REPLAY_ROUTE=route` | unset | Rehearsal: `replayd` plays the recorded route in place of `camerad`, from `EDGEPILOT_REPLAY_START` for `EDGEPILOT_REPLAY_DURATION` seconds; `imud`, `locationd` and `pandad` are not started ([Rehearsal](rehearsal.md)). |
+diff --git a/docs/source-layout.md b/docs/source-layout.md
+index 1b6093e..fd3b145 100644
+--- a/docs/source-layout.md
++++ b/docs/source-layout.md
+@@ -488,6 +488,10 @@ Library `model`, process `modeld`.
+ - `model_output_assembly.h`: reassembles the split-head axmodel outputs into
+   the openpilot 2576-float layout (`model_output.h`); each head is quantised
+   over its own range.
++- `cpu_heads.*`: a CPU-heads core's last linear layers: reads the `.heads`
++  file next to the axmodel and computes each head from its `hx_<head>` feature
++  in fp32 into the same layout
++  ([Model package](../models/README.md#cpu-heads-core)).
+ - `model_temporal.h`: the history queues the NPU core does not carry:
+   100-tick desire pulses pooled to 25x8, 96 ticks of hidden state strided to
+   24x512, and the 5-frame image history per tower. No engine dependency, so
+diff --git a/models/README.md b/models/README.md
+index 9c89a48..5652c86 100644
+--- a/models/README.md
++++ b/models/README.md
+@@ -92,6 +92,29 @@ back through `features_buffer`.
+ mismatched model fails loudly instead of being misparsed. The output layout is
+ in [Model output](../docs/model-pipeline.md#model-output).
+ 
++### CPU-heads core
++
++`modeld` also takes a model with the same five inputs whose outputs are
++`out_hidden` [1, 512] and, per head, the last ReLU feature `hx_<head>`: the
++student distilled for this NPU in the separate supercombo_distill project. Each
++head's last linear layer runs on the CPU in fp32 (`src/model/cpu_heads.h`), so
++small values such as the plan's yaw keep their precision instead of going
++through a U16 output scale. The weights are a `<name>.heads` file next to
++`<name>.axmodel`; the outputs fill the same [2576] layout as the split core
++(`kCpuHeadParts` in `src/model/model_output_assembly.h`).
++
++```text
++hx_meta 64, hx_desire_pred 32, hx_pose 32, hx_wide_from_device 32,
++hx_road_transform 32, hx_lanes 64, hx_lane_prob 16, hx_road_edges 32,
++hx_lead 64, hx_lead_prob 16, hx_plan 256, hx_desire_state 32  (float)
++<name>.heads: "EPHEADS1", u32 head count, per head char name[32], u32 in,
++              u32 out, f32 W[out][in], f32 b[out]  (little-endian)
++```
++
++`modeld` refuses the model if the `.heads` file is missing, has another head,
++or any width differs from the axmodel's outputs or the layout. `EDGEPILOT_MODEL`
++selects it ([Runtime options](../docs/runtime-options.md)).
++
+ ## Current build
+ 
+ The current build (2026-10-04, sha256 `4ef2b2ab…`) is the split-output core
+diff --git a/src/model/CMakeLists.txt b/src/model/CMakeLists.txt
+index a4bba33..1a60608 100644
+--- a/src/model/CMakeLists.txt
++++ b/src/model/CMakeLists.txt
+@@ -1,8 +1,10 @@
+ # modeld. 모델 입력 워프, 온라인 보정, 광류 보정 풀이와 프레임 잇기(flow_tracker, 엔진은 넣는다), 앞차 확대율과 추적,
+-# ModelState 채우기는 호스트에서도 빌드하고, NPU 세션, 재생 소스, 광류 IVE 작업 스레드(flow_worker)는 보드에서만.
++# CPU 헤드 코어의 헤드 선형층(cpu_heads), ModelState 채우기는 호스트에서도 빌드하고,
++# NPU 세션, 재생 소스, 광류 IVE 작업 스레드(flow_worker)는 보드에서만.
+ add_edgepilot_library(model
+   calibration_service.cc
+   calibration_source.cc
++  cpu_heads.cc
+   model_input_transform.cc
+   calibration_online.cc
+   flow_calibration.cc
+diff --git a/src/model/cpu_heads.cc b/src/model/cpu_heads.cc
+new file mode 100644
+index 0000000..fc33415
+--- /dev/null
++++ b/src/model/cpu_heads.cc
+@@ -0,0 +1,87 @@
++// CPU 헤드 코어의 .heads 파일 읽기와 헤드 선형층 계산(cpu_heads.h).
++#include "model/cpu_heads.h"
++
++#include <cmath>
++#include <cstdint>
++#include <cstring>
++#include <fstream>
++#include <stdexcept>
++
++namespace {
++
++constexpr char kMagic[8] = {'E', 'P', 'H', 'E', 'A', 'D', 'S', '1'};
++constexpr size_t kNameBytes = 32;
++constexpr uint32_t kMaxHeads = 64;
++constexpr uint32_t kMaxWidth = 4096;
++
++uint32_t read_u32(std::ifstream &in, const std::string &path) {
++    unsigned char b[4];
++    if (!in.read(reinterpret_cast<char *>(b), 4)) throw std::runtime_error("truncated heads file " + path);
++    return uint32_t(b[0]) | uint32_t(b[1]) << 8 | uint32_t(b[2]) << 16 | uint32_t(b[3]) << 24;
++}
++
++// 보드와 호스트 모두 little-endian이라 f32 배열은 그대로 읽는다.
++void read_floats(std::ifstream &in, std::vector<float> &v, size_t n, const std::string &path) {
++    v.resize(n);
++    if (!in.read(reinterpret_cast<char *>(v.data()), static_cast<std::streamsize>(n * sizeof(float))))
++        throw std::runtime_error("truncated heads file " + path);
++    for (float x : v)
++        if (!std::isfinite(x)) throw std::runtime_error("non-finite weight in heads file " + path);
++}
++
++}  // namespace
++
++CpuHeads::CpuHeads(const std::string &path) {
++    std::ifstream in(path, std::ios::binary);
++    if (!in) throw std::runtime_error("cannot open heads file " + path);
++    char magic[sizeof(kMagic)];
++    if (!in.read(magic, sizeof(magic)) || std::memcmp(magic, kMagic, sizeof(kMagic)) != 0)
++        throw std::runtime_error("not an EPHEADS1 file: " + path);
++    const uint32_t count = read_u32(in, path);
++    if (count == 0 || count > kMaxHeads) throw std::runtime_error("bad head count in " + path);
++    heads_.resize(count);
++    for (Head &head : heads_) {
++        char name[kNameBytes];
++        if (!in.read(name, kNameBytes)) throw std::runtime_error("truncated heads file " + path);
++        const size_t len = strnlen(name, kNameBytes);
++        if (len == 0 || len == kNameBytes) throw std::runtime_error("bad head name in " + path);
++        head.name.assign(name, len);
++        if (find(head.name) != &head) throw std::runtime_error("duplicate head " + head.name + " in " + path);
++        const uint32_t in_width = read_u32(in, path), out_width = read_u32(in, path);
++        if (in_width == 0 || in_width > kMaxWidth || out_width == 0 || out_width > kMaxWidth)
++            throw std::runtime_error("bad width of head " + head.name + " in " + path);
++        head.in = static_cast<int>(in_width);
++        head.out = static_cast<int>(out_width);
++        read_floats(in, head.weight, size_t(out_width) * in_width, path);
++        read_floats(in, head.bias, out_width, path);
++    }
++    if (in.peek() != std::ifstream::traits_type::eof()) throw std::runtime_error("trailing bytes in " + path);
++}
++
++const CpuHeads::Head *CpuHeads::find(const std::string &name) const {
++    for (const Head &head : heads_)
++        if (head.name == name) return &head;
++    return nullptr;
++}
++
++void CpuHeads::apply(const Head &head, const float *x, float *y) {
++    for (int o = 0; o < head.out; ++o) {
++        const float *w = head.weight.data() + static_cast<size_t>(o) * head.in;
++        // 누산기 4개로 나눠 의존 사슬을 끊는다(plan 256x990이 프레임마다 가장 크다).
++        float acc[4] = {0.0f, 0.0f, 0.0f, 0.0f};
++        int i = 0;
++        for (; i + 4 <= head.in; i += 4)
++            for (int k = 0; k < 4; ++k) acc[k] += w[i + k] * x[i + k];
++        float sum = (acc[0] + acc[1]) + (acc[2] + acc[3]);
++        for (; i < head.in; ++i) sum += w[i] * x[i];
++        y[o] = sum + head.bias[o];
++    }
++}
++
++std::string cpu_heads_path(const std::string &axmodel_path) {
++    const std::string ext = ".axmodel";
++    if (axmodel_path.size() > ext.size() &&
++        axmodel_path.compare(axmodel_path.size() - ext.size(), ext.size(), ext) == 0)
++        return axmodel_path.substr(0, axmodel_path.size() - ext.size()) + ".heads";
++    return axmodel_path + ".heads";
++}
+diff --git a/src/model/cpu_heads.h b/src/model/cpu_heads.h
+new file mode 100644
+index 0000000..29ba147
+--- /dev/null
++++ b/src/model/cpu_heads.h
+@@ -0,0 +1,41 @@
++#pragma once
++
++// CPU 헤드 코어(supercombo_distill의 학생 모델)의 헤드별 마지막 선형층. NPU는 헤드마다 마지막 ReLU 특징
++// hx_<head>와 out_hidden만 내고, 각 헤드의 y = W x + b는 여기서 fp32로 계산해 openpilot 2576 레이아웃의
++// 제자리(model_output_assembly.h kCpuHeadParts)에 쓴다. U16 출력 양자화가 plan yaw 같은 작은 값을 뭉개지
++// 않도록 마지막 층을 CPU에 둔 구조다.
++//
++// 가중치는 axmodel 옆의 같은 이름 .heads 파일에 있다(cpu_heads_path). 형식(little-endian):
++//   "EPHEADS1", u32 헤드 수, 헤드마다 char 이름[32](NUL로 채움), u32 입력 폭, u32 출력 폭,
++//   f32 W[출력][입력](행 우선), f32 b[출력]
++// 만드는 쪽은 supercombo_distill의 scripts/export_cpu_heads.py다. axengine에 의존하지 않아 호스트 검사가 본다.
++
++#include <string>
++#include <vector>
++
++class CpuHeads {
++public:
++    struct Head {
++        std::string name;
++        int in = 0;
++        int out = 0;
++        std::vector<float> weight;  // [out][in]
++        std::vector<float> bias;    // [out]
++    };
++
++    // 파일을 읽고 형식을 검사한다. 읽을 수 없거나 형식이 다르면 std::runtime_error.
++    explicit CpuHeads(const std::string &path);
++
++    const std::vector<Head> &heads() const { return heads_; }
++    // 이름으로 찾는다. 없으면 nullptr.
++    const Head *find(const std::string &name) const;
++
++    // y[out] = W x[in] + b
++    static void apply(const Head &head, const float *x, float *y);
++
++private:
++    std::vector<Head> heads_;
++};
++
++// "<dir>/<name>.axmodel"의 가중치 파일 "<dir>/<name>.heads". 확장자가 .axmodel이 아니면 끝에 .heads를 붙인다.
++std::string cpu_heads_path(const std::string &axmodel_path);
+diff --git a/src/model/model_output_assembly.h b/src/model/model_output_assembly.h
+index b4f83c5..f820988 100644
+--- a/src/model/model_output_assembly.h
++++ b/src/model/model_output_assembly.h
+@@ -59,6 +59,31 @@ static_assert(layout::kLaneLineSize * 2 == 528 && layout::kRoadEdgeMeanSize * 2
+                   layout::kLeadMeanSize * 2 == 144,
+               "split output sizes of the released graph");
+ 
++// CPU 헤드 코어(학생 모델, cpu_heads.h)의 헤드. NPU 출력 hx_<head>에 CPU 선형층을 거친 값이 레이아웃의
++// offset부터 count개(그 헤드 칸 전체, plan은 평균 33x15 다음 log std 33x15)를 채운다. 특징(out_hidden)은
++// kFeatureOffset에 그대로 간다.
++struct CpuHeadPart {
++    const char *head;
++    int offset;
++    int count;
++};
++
++constexpr CpuHeadPart kCpuHeadParts[] = {
++    {"meta", layout::kMetaOffset, layout::kMetaSize},
++    {"desire_pred", layout::kDesirePredOffset, layout::kDesirePredSize},
++    {"pose", layout::kPoseOffset, layout::kPoseSize},
++    {"wide_from_device", layout::kWideFromDeviceEulerOffset, layout::kWideFromDeviceEulerSize},
++    {"road_transform", layout::kRoadTransformOffset, layout::kRoadTransformSize},
++    {"lanes", layout::kLaneOffset, layout::kLaneLineSize * 2},
++    {"lane_prob", layout::kLaneProbOffset, layout::kLaneProbSize},
++    {"road_edges", layout::kRoadEdgeOffset, layout::kRoadEdgeMeanSize * 2},
++    {"lead", layout::kLeadOffset, layout::kLeadMeanSize * 2},
++    {"lead_prob", layout::kLeadProbOffset, layout::kLeadProbSize},
++    {"plan", model_output_layout::kPlanOffset, kPlanKnots * kPlanWidth * 2},
++    {"desire_state", model_output_layout::kDesireStateOffset, kDesireLen},
++};
++constexpr int kCpuHeadPartCount = static_cast<int>(sizeof(kCpuHeadParts) / sizeof(kCpuHeadParts[0]));
++
+ // 한 출력을 raw(kModelOutputFloats)의 제자리에 쓴다. 나머지 두 칸(패딩)은 호출자가 0으로 둔다.
+ inline void place(const Part &part, const float *src, float *raw) {
+     switch (part.piece) {
+diff --git a/src/model/supercombo_model.cc b/src/model/supercombo_model.cc
+index c7ed369..d1f6cfd 100644
+--- a/src/model/supercombo_model.cc
++++ b/src/model/supercombo_model.cc
+@@ -58,16 +58,39 @@ SupercomboModel::SupercomboModel(const char *model_file, const AppConfig &config
+             throw std::runtime_error(std::string("axmodel input ") + kInputNames[i] + " is " + shape_string(t.shape) +
+                                      ", not the master contract");
+     }
+-    // 출력은 헤드를 나눈 출력들(split_outputs.py)이다. 이름으로 찾아 제자리에 모은다.
++    // 출력은 헤드를 나눈 출력들(split_outputs.py)이거나, CPU 헤드 코어의 out_hidden과 hx_<head>다.
++    if (output_index("hx_plan") >= 0)
++        bind_cpu_heads(model_file);
++    else
++        bind_split_outputs();
++
++    // traffic convention은 이 차에서 상수(우측 통행 {1, 0})라 한 번만 쓴다.
++    const float right_hand_traffic[2] = {1.0f, 0.0f};
++    std::memcpy(session_.input<float>(index_[kTraffic]), right_hand_traffic, sizeof(right_hand_traffic));
++    if (cpu_heads_)
++        std::fprintf(stderr,
++                     "Supercombo CPU-heads axmodel (pulsar2 %s), %d fp32 heads on the CPU, warp on GDC (AX IVPS)\n",
++                     session_.tools_version().c_str(), model_output_assembly::kCpuHeadPartCount);
++    else
++        std::fprintf(stderr, "Supercombo openpilot-master axmodel (pulsar2 %s), warp on GDC (AX IVPS)\n",
++                     session_.tools_version().c_str());
++}
++
++int SupercomboModel::output_index(const std::string &name) const {
++    for (size_t i = 0; i < session_.outputs().size(); ++i)
++        if (session_.outputs()[i].name == name) return static_cast<int>(i);
++    return -1;
++}
++
++void SupercomboModel::bind_split_outputs() {
++    // 이름으로 찾아 제자리에 모은다.
+     using model_output_assembly::kParts;
+     if (session_.outputs().size() != static_cast<size_t>(model_output_assembly::kPartCount))
+         throw std::runtime_error("axmodel has " + std::to_string(session_.outputs().size()) + " outputs, expected " +
+                                  std::to_string(model_output_assembly::kPartCount));
+     for (int p = 0; p < model_output_assembly::kPartCount; ++p) {
+         const auto &part = kParts[p];
+-        int found = -1;
+-        for (size_t i = 0; i < session_.outputs().size(); ++i)
+-            if (session_.outputs()[i].name == part.name) found = static_cast<int>(i);
++        const int found = output_index(part.name);
+         if (found < 0) throw std::runtime_error(std::string("axmodel lacks output ") + part.name);
+         const auto &out = session_.outputs()[found];
+         if (out.count() != static_cast<size_t>(part.count) || out.dtype != AxEngineSession::DataType::Float32)
+@@ -75,12 +98,42 @@ SupercomboModel::SupercomboModel(const char *model_file, const AppConfig &config
+                                      ", expected " + std::to_string(part.count) + " float");
+         output_parts_[p] = found;
+     }
++}
+ 
+-    // traffic convention은 이 차에서 상수(우측 통행 {1, 0})라 한 번만 쓴다.
+-    const float right_hand_traffic[2] = {1.0f, 0.0f};
+-    std::memcpy(session_.input<float>(index_[kTraffic]), right_hand_traffic, sizeof(right_hand_traffic));
+-    std::fprintf(stderr, "Supercombo openpilot-master axmodel (pulsar2 %s), warp on GDC (AX IVPS)\n",
+-                 session_.tools_version().c_str());
++void SupercomboModel::bind_cpu_heads(const std::string &model_file) {
++    // 헤드마다 NPU 특징 폭이 .heads의 입력 폭과, 헤드 출력 폭이 레이아웃 칸과 맞아야 한다. 하나라도 다르면 거부한다.
++    using model_output_assembly::kCpuHeadParts;
++    const std::string heads_file = cpu_heads_path(model_file);
++    cpu_heads_ = std::make_unique<CpuHeads>(heads_file);
++    if (session_.outputs().size() != static_cast<size_t>(model_output_assembly::kCpuHeadPartCount + 1) ||
++        cpu_heads_->heads().size() != static_cast<size_t>(model_output_assembly::kCpuHeadPartCount))
++        throw std::runtime_error("CPU-heads axmodel has " + std::to_string(session_.outputs().size()) +
++                                 " outputs and " + heads_file + " " + std::to_string(cpu_heads_->heads().size()) +
++                                 " heads, expected " + std::to_string(model_output_assembly::kCpuHeadPartCount) +
++                                 " heads");
++    hidden_output_ = output_index("out_hidden");
++    if (hidden_output_ < 0) throw std::runtime_error("axmodel lacks output out_hidden");
++    const auto &hidden = session_.outputs()[hidden_output_];
++    if (hidden.count() != static_cast<size_t>(kModelFeatureLen) || hidden.dtype != AxEngineSession::DataType::Float32)
++        throw std::runtime_error("axmodel output out_hidden is " + shape_string(hidden.shape) + ", expected " +
++                                 std::to_string(kModelFeatureLen) + " float");
++    for (int p = 0; p < model_output_assembly::kCpuHeadPartCount; ++p) {
++        const auto &part = kCpuHeadParts[p];
++        const std::string name = std::string("hx_") + part.head;
++        const int found = output_index(name);
++        if (found < 0) throw std::runtime_error("axmodel lacks output " + name);
++        const CpuHeads::Head *head = cpu_heads_->find(part.head);
++        if (!head) throw std::runtime_error(heads_file + " lacks head " + part.head);
++        const auto &out = session_.outputs()[found];
++        if (out.count() != static_cast<size_t>(head->in) || out.dtype != AxEngineSession::DataType::Float32)
++            throw std::runtime_error("axmodel output " + name + " is " + shape_string(out.shape) + ", head " +
++                                     part.head + " takes " + std::to_string(head->in) + " float");
++        if (head->out != part.count)
++            throw std::runtime_error("head " + std::string(part.head) + " gives " + std::to_string(head->out) +
++                                     " values, the layout has " + std::to_string(part.count));
++        head_outputs_[p] = found;
++        head_of_part_[p] = head;
++    }
+ }
+ 
+ void SupercomboModel::set_desire(int desire) { temporal_.set_desire(desire); }
+@@ -129,9 +182,17 @@ bool SupercomboModel::infer(uint64_t warp_start_ns, uint64_t warp_end_ns, std::v
+     const uint64_t npu_end_ns = profile_stamp();
+ 
+     raw_output.resize(kModelOutputFloats);  // 끝의 패딩 두 칸은 처음 늘릴 때의 0 그대로다
+-    for (int i = 0; i < model_output_assembly::kPartCount; ++i)
+-        model_output_assembly::place(model_output_assembly::kParts[i], session_.output<float>(output_parts_[i]),
+-                                     raw_output.data());
++    if (cpu_heads_) {
++        std::memcpy(raw_output.data() + model_output_layout::kFeatureOffset, session_.output<float>(hidden_output_),
++                    sizeof(float) * kModelFeatureLen);
++        for (int p = 0; p < model_output_assembly::kCpuHeadPartCount; ++p)
++            CpuHeads::apply(*head_of_part_[p], session_.output<float>(head_outputs_[p]),
++                            raw_output.data() + model_output_assembly::kCpuHeadParts[p].offset);
++    } else {
++        for (int i = 0; i < model_output_assembly::kPartCount; ++i)
++            model_output_assembly::place(model_output_assembly::kParts[i], session_.output<float>(output_parts_[i]),
++                                         raw_output.data());
++    }
+     temporal_.push_feature_history(raw_output.data());
+     const uint64_t outputs_end_ns = profile_stamp();
+ 
+diff --git a/src/model/supercombo_model.h b/src/model/supercombo_model.h
+index 55954e2..45fe3e8 100644
+--- a/src/model/supercombo_model.h
++++ b/src/model/supercombo_model.h
+@@ -5,17 +5,22 @@
+ // 입력: input_imgs/big_input_imgs uint8 [1,12,128,256], desire [1,25,8],
+ // features_buffer [1,24,512], traffic_convention [1,2]. 출력은 헤드를 나눈 출력들(split_outputs.py)을
+ // [1,2576] 제자리에 모은다. 입력 워프는 GDC(maix_gdc_warp.h)가 config의 nv12 크기 NV12 소스에서 한다.
++// 입력이 같고 출력이 out_hidden과 hx_<head>인 CPU 헤드 코어(supercombo_distill의 학생 모델)도 받는다. 그때는
++// 옆의 .heads 파일로 헤드 선형층을 CPU에서 계산해 같은 레이아웃을 만든다(cpu_heads.h).
+ 
+ #include "common/app_config.h"
+ #include "common/model_output.h"
+ #include "maixcam2/maix_gdc_warp.h"
+ #include "model/ax_engine_session.h"
++#include "model/cpu_heads.h"
+ #include "model/model_input_transform.h"
+ #include "model/model_output_assembly.h"
+ #include "model/model_temporal.h"
+ 
+ #include <cstdint>
+ #include <functional>
++#include <memory>
++#include <string>
+ #include <vector>
+ 
+ class SupercomboModel {
+@@ -31,6 +36,9 @@ public:
+     void set_desire(int desire);
+ 
+ private:
++    void bind_split_outputs();
++    void bind_cpu_heads(const std::string &model_file);
++    int output_index(const std::string &name) const;
+     // warp_start_ns·warp_end_ns는 프로파일 시각(EDGEPILOT_PROFILE이 아니면 0)이다
+     bool infer(uint64_t warp_start_ns, uint64_t warp_end_ns, std::vector<float> &raw_output);
+     // EDGEPILOT_PROFILE일 때만 시계를 읽는다(CLOCK_BOOTTIME은 이 보드에서 진짜 syscall이다).
+@@ -41,7 +49,12 @@ private:
+     AxEngineSession session_;
+     int index_[kInputCount] = {};
+     int output_parts_[model_output_assembly::kPartCount] = {};  // kParts 순서대로 세션 출력 번호
+-    bool profile_ = false;                                      // EDGEPILOT_PROFILE: 30프레임마다 단계별 평균 ms
++    // CPU 헤드 코어일 때만: 헤드 가중치, kCpuHeadParts 순서대로 세션 출력 번호와 헤드, out_hidden 출력 번호
++    std::unique_ptr<CpuHeads> cpu_heads_;
++    int head_outputs_[model_output_assembly::kCpuHeadPartCount] = {};
++    const CpuHeads::Head *head_of_part_[model_output_assembly::kCpuHeadPartCount] = {};
++    int hidden_output_ = -1;
++    bool profile_ = false;  // EDGEPILOT_PROFILE: 30프레임마다 단계별 평균 ms
+     ModelInputTransform input_transform_;
+     ModelInputTransform big_input_transform_;
+     GdcWarp gdc_;  // session_ 뒤에 만든다(AX_SYS_Init을 세션이 한다)
+diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
+index df32623..4294910 100644
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -38,6 +38,7 @@ add_host_test(gtest_lead_flow model)
+ add_host_test(gtest_lead_tracker model)
+ add_host_test(gtest_model_input_transform model)
+ add_host_test(gtest_calibration_source model)
++add_host_test(gtest_cpu_heads model)
+ add_host_test(gtest_hud_canvas hud)
+ add_host_test(gtest_hud_policy hud)
+ add_host_test(gtest_hud_state hud_state)
+diff --git a/tests/gtest_cpu_heads.cc b/tests/gtest_cpu_heads.cc
+new file mode 100644
+index 0000000..aa72fe4
+--- /dev/null
++++ b/tests/gtest_cpu_heads.cc
+@@ -0,0 +1,127 @@
++// CPU 헤드 코어(학생 모델)의 .heads 파일 읽기, 헤드 선형층 계산, 헤드가 2576 레이아웃을 빈틈없이 채우는지.
++#include "model/cpu_heads.h"
++
++#include "model/model_output_assembly.h"
++
++#include <gtest/gtest.h>
++
++#include <cstdint>
++#include <cstdio>
++#include <cstdlib>
++#include <cstring>
++#include <limits>
++#include <stdexcept>
++#include <string>
++#include <vector>
++
++namespace {
++
++struct TestHead {
++    std::string name;
++    int in;
++    int out;
++};
++
++void put_u32(std::string &b, uint32_t v) {
++    for (int i = 0; i < 4; ++i) b.push_back(static_cast<char>((v >> (8 * i)) & 0xff));
++}
++
++void put_f32(std::string &b, float v) {
++    char c[4];
++    std::memcpy(c, &v, 4);
++    b.append(c, 4);
++}
++
++// W[o][i] = (o + 1) * 0.01 + i * 0.001, b[o] = -o
++std::string heads_bytes(const std::vector<TestHead> &heads) {
++    std::string b = "EPHEADS1";
++    put_u32(b, static_cast<uint32_t>(heads.size()));
++    for (const TestHead &h : heads) {
++        std::string name = h.name;
++        name.resize(32, '\0');
++        b += name;
++        put_u32(b, static_cast<uint32_t>(h.in));
++        put_u32(b, static_cast<uint32_t>(h.out));
++        for (int o = 0; o < h.out; ++o)
++            for (int i = 0; i < h.in; ++i) put_f32(b, (o + 1) * 0.01f + i * 0.001f);
++        for (int o = 0; o < h.out; ++o) put_f32(b, -static_cast<float>(o));
++    }
++    return b;
++}
++
++std::string write_temp(const std::string &bytes) {
++    char path[] = "/tmp/gtest_cpu_heads_XXXXXX";
++    const int fd = mkstemp(path);
++    EXPECT_GE(fd, 0);
++    std::FILE *f = fdopen(fd, "wb");
++    std::fwrite(bytes.data(), 1, bytes.size(), f);
++    std::fclose(f);
++    return path;
++}
++
++TEST(CpuHeads, LoadsAndApplies) {
++    const std::string path = write_temp(heads_bytes({{"plan", 6, 3}, {"lead_prob", 5, 2}}));
++    const CpuHeads heads(path);
++    std::remove(path.c_str());
++    ASSERT_EQ(heads.heads().size(), 2u);
++    const CpuHeads::Head *plan = heads.find("plan");
++    ASSERT_NE(plan, nullptr);
++    EXPECT_EQ(plan->in, 6);
++    EXPECT_EQ(plan->out, 3);
++    EXPECT_EQ(heads.find("lanes"), nullptr);
++
++    const float x[6] = {1.0f, -2.0f, 0.5f, 3.0f, 0.0f, 4.0f};
++    float y[3];
++    CpuHeads::apply(*plan, x, y);
++    for (int o = 0; o < 3; ++o) {
++        double want = -o;
++        for (int i = 0; i < 6; ++i) want += ((o + 1) * 0.01 + i * 0.001) * x[i];
++        EXPECT_NEAR(y[o], want, 1e-5);
++    }
++}
++
++TEST(CpuHeads, RejectsBadFiles) {
++    const std::string good = heads_bytes({{"plan", 4, 2}});
++    std::string bad_magic = good;
++    bad_magic[7] = '2';
++    const std::string cases[] = {
++        bad_magic,
++        good.substr(0, good.size() - 1),                // 잘림
++        good + "x",                                     // 남는 바이트
++        heads_bytes({{"plan", 4, 2}, {"plan", 4, 2}}),  // 같은 이름 두 번
++        heads_bytes({{"", 4, 2}}),                      // 빈 이름
++        heads_bytes({{"plan", 0, 2}}),                  // 폭 0
++    };
++    for (const std::string &bytes : cases) {
++        const std::string path = write_temp(bytes);
++        EXPECT_THROW(CpuHeads heads(path), std::runtime_error);
++        std::remove(path.c_str());
++    }
++    EXPECT_THROW(CpuHeads heads("/nonexistent/student.heads"), std::runtime_error);
++}
++
++TEST(CpuHeads, RejectsNonFiniteWeights) {
++    std::string bytes = heads_bytes({{"pose", 2, 1}});
++    const float nan = std::numeric_limits<float>::quiet_NaN();
++    std::memcpy(&bytes[bytes.size() - 4], &nan, 4);  // bias
++    const std::string path = write_temp(bytes);
++    EXPECT_THROW(CpuHeads heads(path), std::runtime_error);
++    std::remove(path.c_str());
++}
++
++TEST(CpuHeads, PathNextToTheAxmodel) {
++    EXPECT_EQ(cpu_heads_path("/root/edgepilot/models/lrg_calL.axmodel"), "/root/edgepilot/models/lrg_calL.heads");
++    EXPECT_EQ(cpu_heads_path("models/student"), "models/student.heads");
++}
++
++// 헤드 칸과 특징 칸이 2576 레이아웃의 앞쪽 kModelOutputFloats - 패딩을 겹침 없이 정확히 한 번씩 채운다.
++TEST(CpuHeads, PartsTileTheLayout) {
++    std::vector<int> hits(kModelOutputFloats, 0);
++    for (const auto &part : model_output_assembly::kCpuHeadParts)
++        for (int i = 0; i < part.count; ++i) ++hits[part.offset + i];
++    for (int i = 0; i < kModelFeatureLen; ++i) ++hits[model_output_layout::kFeatureOffset + i];
++    for (int i = 0; i < kModelOutputFloats; ++i)
++        EXPECT_EQ(hits[i], i < kModelOutputFloats - model_output_layout::kOutputPadding ? 1 : 0) << "at " << i;
++}
++
++}  // namespace

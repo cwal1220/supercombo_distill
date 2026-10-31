@@ -1,0 +1,8 @@
+Sat Oct 31 10:45:33 KST 2026 LRB trained; LRC starts
+Sat Oct 31 11:04:15 KST 2026 stopped chain_next3's random-calibration build (pid 12799)
+Sat Oct 31 11:04:25 KST 2026 LRB best ckpt/mac_lrb/ema.pt
+Sat Oct 31 11:15:02 KST 2026 built lrb_ext from ckpt/mac_lrb/ema.pt
+Sat Oct 31 12:30:09 KST 2026 p2sim lrb_ext done
+Sat Oct 31 13:00:44 KST 2026 LRC best ckpt/mac_lrc/ema.pt
+Sat Oct 31 13:10:46 KST 2026 built lrc_ext from ckpt/mac_lrc/ema.pt
+Sat Oct 31 14:03:24 KST 2026 p2sim lrc_ext done

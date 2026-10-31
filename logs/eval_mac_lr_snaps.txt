@@ -1,0 +1,8 @@
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2       lead_x_lf  false_lead_pct         vx0_cms
+student mac_lr/ep1 (S8)               0.0485          0.2901         10.3229         10.0564         12.4194          4.9667          0.1466          3.5864         15.8061         77.1791
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2       lead_x_lf  false_lead_pct         vx0_cms
+student mac_lr/ep2 (S8)               0.0573          0.2829         10.3263          9.6046         11.9997          5.4170          0.1307          3.6483          7.7538         72.5254
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2       lead_x_lf  false_lead_pct         vx0_cms
+student mac_lr/ep3 (S8)               0.0446          0.2721          9.7491          9.5171         11.8551          4.9590          0.1292          3.4206          9.1208         73.4522
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2       lead_x_lf  false_lead_pct         vx0_cms
+student mac_lr/ep4 (S8)               0.0436          0.2615          9.7833          9.4595         11.8243          4.9466          0.1305          3.3747          8.9417         71.5631

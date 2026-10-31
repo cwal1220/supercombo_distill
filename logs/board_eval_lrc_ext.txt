@@ -1,0 +1,9 @@
+board: edgepilot.service stopped for the run
+board: edgepilot.service active
+  min =  11.210 ms   max =  11.301 ms   avg =  11.212 ms  median =  11.212 ms
+1497 frames, run() 15.45 ms median, 15.50 mean
+2026-10-25--22-42-26-175__015 (1497 frames)
+model                                lat_acc        long_acc     plan_y2s_cm  lanes_vs_ld_cm  width_vs_ld_cm        lead_x_m            gas2
+fp32                                  0.0558          0.3299         15.9817         12.7688         15.6644          3.7505          0.1675
+S8 sim (eval_student --s8)            0.0553          0.3284         15.8197         12.9286         15.7700          3.7393          0.1676
+board NPU                             0.0553          0.3284         15.8198         12.9283         15.7699          3.7393          0.1676

@@ -1,0 +1,6 @@
+#!/bin/bash
+# The project's Python with the CUDA 13 / cuDNN libraries onnxruntime-gpu needs on the library path.
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
+NV=$ROOT/.venv/lib/python3.12/site-packages/nvidia
+export LD_LIBRARY_PATH=$NV/cu13/lib:$NV/cudnn/lib:$NV/cublas/lib:${LD_LIBRARY_PATH:-}
+exec "$ROOT/.venv/bin/python" "$@"

@@ -1,0 +1,23 @@
+2026-09-27--02-44-40-679__000 done
+2026-09-27--02-44-40-679__015 done
+2026-10-05--00-07-29-810__000 done
+2026-10-05--16-28-44-410__000 done
+2026-10-05--16-28-44-410__015 done
+2026-10-22--23-22-40-918__000 done
+2026-10-25--22-42-26-175__000 done
+2026-10-25--22-42-26-175__015 done
+34269 moving frames, 8 units; student ckpt/mac_lrg/ema_calL.pt
+                                student    shipped    teacher
+calib pitch mean (mrad)           0.050        nan      0.166
+calib yaw mean (mrad)             0.302        nan      0.049
+road height mean (m)              1.206        nan      1.216
+|pitch - teacher| (mrad)          1.748      1.052
+|yaw - teacher| (mrad)            1.890      0.958
+|yaw rate - teacher| (mrad/s)      2.223      0.889
+|height - teacher| (cm)           2.066      4.270
+|edge y - teacher| (cm)          75.056     79.522
+|gas2 - teacher|                  0.126      0.090
+trans std y median               0.0491        nan     0.0380
+edge std median (m)              0.9320        nan     0.9450
+desire_state TV distance         0.0100        nan
+desire argmax agree (%)           99.23      98.05   (teacher non-none frames 2168)

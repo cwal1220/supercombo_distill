@@ -1,0 +1,47 @@
+# sweep 2026년 10월 27일 화요일 19시 10분 21초 KST
+== base torch2.8 | .venv/bin/python scripts/bench_train.py --device mps --arch {} --batch 64 --steps 15
+torch 2.8.0 mps bf16 batch 64: train 197 samples/s, refresh 845 frames/s, epoch ~43 min (compute only, 400000 samples + 484000 refresh frames)
+== base torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {} --batch 64 --steps 15
+torch 2.14.1 mps bf16 batch 64: train 261 samples/s, refresh 856 frames/s, epoch ~35 min (compute only, 400000 samples + 484000 refresh frames)
+== base torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {} --batch 128 --steps 15
+torch 2.14.1 mps bf16 batch 128: train 263 samples/s, refresh 853 frames/s, epoch ~35 min (compute only, 400000 samples + 484000 refresh frames)
+== base torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {} --batch 128 --dtype fp16 --steps 15
+torch 2.14.1 mps fp16 batch 128: train 264 samples/s, refresh 862 frames/s, epoch ~35 min (compute only, 400000 samples + 484000 refresh frames)
+== base torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {} --batch 128 --channels-last --steps 15
+torch 2.14.1 mps bf16 batch 128 channels_last: train 72 samples/s, refresh 805 frames/s, epoch ~103 min (compute only, 400000 samples + 484000 refresh frames)
+== base torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {} --batch 128 --compile --steps 15
+torch 2.14.1 mps bf16 batch 128 compile: train 157 samples/s, refresh 2119 frames/s, epoch ~46 min (compute only, 400000 samples + 484000 refresh frames)
+== base mlx | .venv314/bin/python scripts/bench_mlx.py --arch {} --batch 64 --steps 15
+mlx 0.32.4 bf16 batch 64: train 246 samples/s, refresh 1508 frames/s, epoch ~32 min
+== base mlx | .venv314/bin/python scripts/bench_mlx.py --arch {} --batch 128 --steps 15
+mlx 0.32.4 bf16 batch 128: train 244 samples/s, refresh 1482 frames/s, epoch ~33 min
+== base mlx | .venv314/bin/python scripts/bench_mlx.py --arch {} --batch 128 --dtype fp16 --steps 15
+mlx 0.32.4 fp16 batch 128: train 247 samples/s, refresh 1434 frames/s, epoch ~33 min
+== base mlx | .venv314/bin/python scripts/bench_mlx.py --arch {} --batch 64 --dtype fp32 --steps 15
+mlx 0.32.4 fp32 batch 64: train 144 samples/s, refresh 1131 frames/s, epoch ~53 min
+== base mlx | .venv314/bin/python scripts/bench_mlx.py --arch {} --batch 128 --no-compile --steps 15
+mlx 0.32.4 bf16 batch 128 no-compile: train 194 samples/s, refresh 867 frames/s, epoch ~44 min
+== w48d torch2.8 | .venv/bin/python scripts/bench_train.py --device mps --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 32 --steps 15
+torch 2.8.0 mps bf16 batch 32: train 56 samples/s, refresh 276 frames/s, epoch ~148 min (compute only, 400000 samples + 484000 refresh frames)
+== w48d torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 32 --steps 15
+torch 2.14.1 mps bf16 batch 32: train 66 samples/s, refresh 275 frames/s, epoch ~130 min (compute only, 400000 samples + 484000 refresh frames)
+== w48d torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 64 --steps 15
+torch 2.14.1 mps bf16 batch 64: train 71 samples/s, refresh 276 frames/s, epoch ~122 min (compute only, 400000 samples + 484000 refresh frames)
+== w48d torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 64 --dtype fp16 --steps 15
+torch 2.14.1 mps fp16 batch 64: train 71 samples/s, refresh 276 frames/s, epoch ~123 min (compute only, 400000 samples + 484000 refresh frames)
+== w48d torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 64 --channels-last --steps 15
+torch 2.14.1 mps bf16 batch 64 channels_last: train 27 samples/s, refresh 269 frames/s, epoch ~281 min (compute only, 400000 samples + 484000 refresh frames)
+== w48d torch-new | .venv314/bin/python scripts/bench_train.py --device mps --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 64 --compile --steps 15
+program_source:3155:25: error: no 'buffer' resource location available for 'in_ptr15'
+program_source:3156:25: error: no 'buffer' resource location available for 'in_ptr16'
+== w48d mlx | .venv314/bin/python scripts/bench_mlx.py --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 32 --steps 15
+mlx 0.32.4 bf16 batch 32: train 61 samples/s, refresh 357 frames/s, epoch ~132 min
+== w48d mlx | .venv314/bin/python scripts/bench_mlx.py --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 64 --steps 15
+mlx 0.32.4 bf16 batch 64: train 62 samples/s, refresh 355 frames/s, epoch ~130 min
+== w48d mlx | .venv314/bin/python scripts/bench_mlx.py --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 64 --dtype fp16 --steps 15
+mlx 0.32.4 fp16 batch 64: train 63 samples/s, refresh 356 frames/s, epoch ~129 min
+== w48d mlx | .venv314/bin/python scripts/bench_mlx.py --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 32 --dtype fp32 --steps 15
+mlx 0.32.4 fp32 batch 32: train 37 samples/s, refresh 258 frames/s, epoch ~211 min
+== w48d mlx | .venv314/bin/python scripts/bench_mlx.py --arch {"widths":[48,96,192,384,768],"depths":[1,3,6,9,3]} --batch 64 --no-compile --steps 15
+mlx 0.32.4 bf16 batch 64 no-compile: train 51 samples/s, refresh 226 frames/s, epoch ~166 min
+# done 2026년 10월 27일 화요일 19시 17분 41초 KST

@@ -1,0 +1,8 @@
+2026-10-29 19:18:51 watching ckpt/mac_base_qat3/last.pt (mtime 0, 0 copies already)
+2026-10-29 20:00:11 ep1.pt <- last.pt (mtime 1793271583,  49M)
+2026-10-29 20:05:20 ep1.pt evaluated
+2026-10-29 20:41:52 ep2.pt <- last.pt (mtime 1793274081,  49M)
+2026-10-29 20:46:22 ep2.pt evaluated
+2026-10-29 21:23:13 ep3.pt <- last.pt (mtime 1793276575,  49M)
+2026-10-29 21:27:42 ep3.pt evaluated
+2026-10-29 21:27:42 done, 3 copies
